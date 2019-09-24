@@ -12,24 +12,24 @@ class BackOfficeController
     {
     }
 
-    public function adminLogin()
-    {
-        require('view/backend/admin-login.php');
-
-        $userManager = new UserManager();
-        $user = $userManager->getUser();
-        $userEmail = $user['email'];
-        $userPassword = $user['password'];
-        if ((isset($_POST['email'])) && ($_POST['email'] === $userEmail)
-            (isset($_POST['password'])) && ($_POST['password'] === $userPassword)
-
-        ) {
-            $_SESSION['email'] = $userEmail;
-            $_SESSION['password'] = $userPassword;
-        } else {
-            echo "L'email ou le mot de passe est incorrect.";
-        }
-    }
+//    public function adminLogin()
+//    {
+//        require('view/backend/admin-login.php');
+//
+//        $userManager = new UserManager();
+//        $user = $userManager->getUser();
+//        $userEmail = $user['email'];
+//        $userPassword = $user['password'];
+//        if ((isset($_POST['email'])) && ($_POST['email'] === $userEmail)
+//            (isset($_POST['password'])) && ($_POST['password'] === $userPassword)
+//
+//        ) {
+//            $_SESSION['email'] = $userEmail;
+//            $_SESSION['password'] = $userPassword;
+//        } else {
+//            echo "L'email ou le mot de passe est incorrect.";
+//        }
+//    }
 
     public function admin()
     { // pour l'accès à l'espace administration

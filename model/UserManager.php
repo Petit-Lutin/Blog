@@ -5,7 +5,7 @@ class UserManager extends Manager
 {
     public function getUser()
     {
-        $db = $this->dbConnect();
+        $db=DbConnect::getConnection();
         $req = $db->prepare('SELECT pseudo, password, email FROM users WHERE email = ?');
         $req->execute(array());
         $user = $req->fetch();
