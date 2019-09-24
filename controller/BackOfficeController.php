@@ -33,7 +33,6 @@ class BackOfficeController
 
     public function admin()
     { // pour l'accès à l'espace administration
-
     }
 
     public function createPost() //pour créer un nouvel article
