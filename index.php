@@ -29,9 +29,10 @@ try {
                 $backOfficeController->addPost();
                 break;
             case 'article':
-                $frontOfficeController->post();
+                if (!empty($_GET['id']) && (isset($_GET['id']))){ /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
+                    $frontOfficeController->post();
+                }
                 break;
-
 
             case 'modifier-article':
                 $backOfficeController->editPost();
@@ -52,11 +53,9 @@ try {
 //                header('Location: index.php?action=article&id=' . $postId);
 // renvoyer une fonction erreur de controller qui prend en arg du texte et qui renvoie "erreur"
                     throw new Exception("Veuillez choisir un commentaire");
-
                 }
 //                $frontOfficeController->post();
                 break;
-
         }
 
     } else {
@@ -65,32 +64,4 @@ try {
 } catch (Exception $e) {
     echo "ERREUR" . $e->getMessage();
 }
-/*if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'listPosts') {
-        listPosts();
-    }
-    elseif ($_GET['action'] == 'post') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            post();
-        }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-    }
-    elseif ($_GET['action'] == 'addComment') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-            }
-            else {
-                echo 'Erreur : tous les champs ne sont pas remplis !';
-            }
-        }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-    }
-}
-else {
-    listPosts();
-}*/
+

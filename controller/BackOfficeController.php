@@ -51,8 +51,6 @@ class BackOfficeController
         } else {
             header("Location:index.php?action=creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
         }
-        // require ('view/backend/newPostView.php');
-
     }
 
     public function editPost()
@@ -76,9 +74,4 @@ class BackOfficeController
             header("Location:index.php?action=modifier-article");
         }
     }
-//public function reportComment(){
-//        $commentManager= new CommentManager();
-//
-//}
-
 }

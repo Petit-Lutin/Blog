@@ -12,13 +12,11 @@
         slug de cette page = " <?= $post['slug'] ?>"
     </div>
     <?php
-echo $post['id'];
-echo end($postId);
-die();
+    //    echo $post['id'];
 
 
-    //todo: cacher l'affichage des boutons précédent/suivant quand on arrive aux bouts
-    if ((null != $post['id'] + 1) ) {
+    //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
+    if ((null != $post['id'] + 1)) {
         $biggerId = $post['id'] + 1; ?>
 
         <p><a href="index.php?action=article&amp;id=<?= $biggerId ?>">Post précédent (+ récent)</a></p>
@@ -31,7 +29,6 @@ die();
         <p><a href="index.php?action=article&amp;id=<?= $smallerId ?>">Post suivant (+ ancien)</a></p>
         <?php
     }
-
     ?>
     <p><a href="index.php?action=liste-articles&page=0">Retour à la liste des articles</a></p>
 
@@ -43,27 +40,19 @@ die();
         ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-<!--        --><?php //if (!isset($comments['id']) && (!isset($comments['ip']))) {
-//            ?>
 
-            <p>
+        <p>
             <button class="btn-warning btn-reportComment"><a
                         href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                         title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
             </button>
-<!--        --><?php //} else {
-//            ?>
-            <div class="reportedComment">Vous avez signalé ce commentaire.</div>
-<!--            --><?php
-//        }
-//
-//        ?>
-        <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos injurieux ou offensants.
-        </div>
         </p>
-        <?php
-    }
-    ?>
+    <?php } ?>
+    <div class="reportedComment">Vous avez signalé ce commentaire.</div>
+
+
+    <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos injurieux ou offensants.
+    </div>
 
     <!-- Pour poster un commentaire -->
     <form action="index.php?action=add-comment&amp;id=<?= $post['id'] ?>" method="post">
@@ -79,12 +68,8 @@ die();
             <input type="submit"/>
         </div>
     </form>
-    <?php
-    echo 'test adresse ip ';
-    echo $_SERVER["REMOTE_ADDR"];
-    ?>
+
     <?php $content = ob_get_clean(); ?>
 </div>
 <?php require('template.php'); ?>
-
 

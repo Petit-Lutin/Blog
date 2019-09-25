@@ -8,7 +8,6 @@
         echo 'vous êtes arrivé sur la dernière page';
     } ?>
     <?php
-    //while ($data = $postsInfo['posts']->fetch()) //
     while ($data = $posts->fetch()) //
     {
         ?>
@@ -27,34 +26,19 @@
 
         </div>
 
-
         <?php
     }
 
-
-
-
-
-
-
-//    echo 'page actuelle : '. $page.' prev '.$previousPage.' next '.$nextPage;
-//    $nextPage=$posts->nextpage($page);
-
-//    if ( $_GET['page'] >=1) {
-////        $previousPage=$page--;
     if ($page>=1){
     ?>
     <a href="index.php?action=liste-articles&amp;page=<?= $page-1 ?>">page précédente</a>
     <?php
     }
-//
-//    }
+
     if ($posts->rowCount() === 5) {
 
-//        $nextPage=$page++;
         ?> <a href="index.php?action=liste-articles&amp;page=<?= $page+1 ?>">page suivante</a>
     <?php }
-    // bouton page précédente (si $page>0, faire page-1 + bouton page suivante)
     ?>
 </div>
 <?php $content = ob_get_clean(); ?>

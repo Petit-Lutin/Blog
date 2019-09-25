@@ -6,9 +6,7 @@ class PostManager extends Manager
     public function getPosts($page = 0) //
     {
         $db = DbConnect::getConnection();
-        $offset = $page * 5; //pour savoir quel est l'article le plus bas affiché sur la page, avec 5 articles par page
-
-//        echo 'offset : ' . $offset;
+        $offset = $page * 5; //offset sert à savoir quel est l'article le plus bas affiché sur la page, avec 5 articles par page
 
 //        $req = $db->query('SELECT COUNT(*) FROM posts');
 //        $nbArticles = $req[0];
@@ -22,7 +20,6 @@ class PostManager extends Manager
         $req->bindParam(':offset', $offset, PDO::PARAM_INT);
         $req->execute();
         return $req;
-
     }
 
     public function getPost($postId)
@@ -33,15 +30,6 @@ class PostManager extends Manager
         $post = $req->fetch();
         return $post;
     }
-
-    //public function editPost($title, $content)
-    //{
-    //    $db = $this->dbConnect();
-    //     $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-    //    $updatedPost = $db->prepare('UPDATE title, content FROM posts WHERE id = ?');
-    //     $affectedLines = $updatedPost->execute(array($title, $content));
-
-    // }
 
     public function updatePost($postId, $title, $content)
     {
