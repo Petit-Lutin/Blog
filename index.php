@@ -18,6 +18,8 @@ try {
                 break;
             case 'admin-login':
                 $backOfficeController->adminLogin();
+                $_SESSION['email'] = $userEmail;
+                $_SESSION['password'] = $userPassword;
                 break;
             case 'admin':
                 $backOfficeController->admin();

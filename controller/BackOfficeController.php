@@ -1,6 +1,8 @@
 <?php
 
 // Chargement des classes
+use http\Header;
+
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
@@ -12,24 +14,30 @@ class BackOfficeController
     {
     }
 
-//    public function adminLogin()
-//    {
-//        require('view/backend/admin-login.php');
-//
-//        $userManager = new UserManager();
-//        $user = $userManager->getUser();
-//        $userEmail = $user['email'];
-//        $userPassword = $user['password'];
-//        if ((isset($_POST['email'])) && ($_POST['email'] === $userEmail)
-//            (isset($_POST['password'])) && ($_POST['password'] === $userPassword)
-//
-//        ) {
-//            $_SESSION['email'] = $userEmail;
-//            $_SESSION['password'] = $userPassword;
-//        } else {
-//            echo "L'email ou le mot de passe est incorrect.";
-//        }
-//    }
+    public function adminLogin()
+    {
+        require('admin-login.php');
+
+        $userManager = new UserManager();
+        $user = $userManager->getUser();
+        $userEmailForm = $_POST['email'];
+        $userPasswordForm = $_POST['password'];
+
+        if ($userEmailForm === $user['email']) {
+            $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
+            $userPasswordDb = $user['password'];
+            $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
+
+            if ($mdpOK == true) {
+                header('Location:admin.php');
+                $_SESSION['email'] = $userEmail;
+                $_SESSION['password'] = $userPassword;
+            }
+
+        } else {
+            echo "L'email ou le mot de passe est incorrect.";
+        }
+    }
 
     public function admin()
     { // pour l'accès à l'espace administration
