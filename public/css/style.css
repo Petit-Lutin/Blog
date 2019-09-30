@@ -1,46 +1,57 @@
-h1, h3
-{
-    text-align:center;
-}
-h3
-{
-    background-color:rgb(238, 195, 225);
-    color:rgb(0, 0, 0);
-    font-size:0.9em;
-    margin-bottom:0px;
-}
-.news p
-{
-    background-color:#CCCCCC;
-}
-.news
-{
-    /*width:70%;*/
-    margin:auto;
+h1, h3 {
+    text-align: center;
 }
 
-a
-{
+h3 {
+    background-color: rgb(238, 195, 225);
+    color: rgb(0, 0, 0);
+    font-size: 0.9em;
+    margin-bottom: 0px;
+}
+
+.news p {
+    background-color: #CCCCCC;
+}
+
+.news {
+    /*width:70%;*/
+    margin: auto;
+}
+
+a {
     text-decoration: none;
     color: blue;
 }
 
-strong{
+strong {
     /*color: blueviolet;*/
 }
 
-#tinyMCE{
+#tinyMCE {
     width: 80%;
 }
 
-h1{
+h1 {
     margin-bottom: 50px;
 }
 
-.contenuPage{
-    margin-top:100px;
+.contenuPage {
+    margin-top: 100px;
 }
 
- .deletedComment{
+.deletedComment {
     display: none;
+}
+
+.loggedBar {
+    margin-bottom: 20px;
+}
+
+.loggedBar ul {
+    display: flex;
+}
+
+.loggedBar ul li {
+    list-style-type: none;
+    padding: 5px;
 }

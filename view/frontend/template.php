@@ -32,6 +32,16 @@
     </ul>
     <!--        </div>-->
     <!--    </nav>-->
+    <?php
+    if (!isset($_SESSION)) {
+        require('view/backend/loginTemplate.php');
+    } else {
+        require('view/backend/loggedTemplate.php'); echo 'sessioooooon';
+        var_dump( $_SESSION['email']);
+       var_dump( $_SESSION['password']);
+
+    }
+    ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
@@ -50,9 +60,9 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.php?action=creer-article">Créer un article</a>
-                        </li>
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link" href="index.php?action=creer-article">Créer un article</a>-->
+                        <!--                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="#">Services</a>
                         </li>

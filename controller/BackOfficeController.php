@@ -1,8 +1,9 @@
 <?php
 
 // Chargement des classes
-use http\Header;
+//use http\Header;
 
+require_once ("model/DbConnect.php");
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
@@ -18,10 +19,16 @@ class BackOfficeController
     {
         require('admin-login.php');
 
+
+    }
+
+    public function admin()
+    { // pour l'accès à l'espace administration
+
         $userManager = new UserManager();
         $user = $userManager->getUser();
-        $userEmailForm = $_POST['email'];
-        $userPasswordForm = $_POST['password'];
+        $userEmailForm = htmlspecialchars($_POST['email']);
+        $userPasswordForm = htmlspecialchars($_POST['password']);
 
         if ($userEmailForm === $user['email']) {
             $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
@@ -29,18 +36,16 @@ class BackOfficeController
             $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
 
             if ($mdpOK == true) {
-                header('Location:admin.php');
+                header('Location:index.php');
+               session_start();
                 $_SESSION['email'] = $userEmail;
                 $_SESSION['password'] = $userPassword;
             }
 
         } else {
             echo "L'email ou le mot de passe est incorrect.";
+//            head
         }
-    }
-
-    public function admin()
-    { // pour l'accès à l'espace administration
     }
 
     public function createPost() //pour créer un nouvel article
@@ -81,5 +86,13 @@ class BackOfficeController
         } else {
             header("Location:index.php?action=modifier-article");
         }
+    }
+
+    public function logOut()
+    {
+//        if (isset($_SESSION)){
+            session_destroy();
+            header('Location:index.php');
+//        }
     }
 }

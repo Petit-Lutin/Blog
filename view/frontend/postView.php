@@ -1,4 +1,5 @@
-<?php ob_start(); ?>
+<?php ob_start();
+session_start();?>
 <div class="contenuPage">
     <div class="news">
         <h3>

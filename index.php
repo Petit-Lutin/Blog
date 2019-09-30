@@ -1,14 +1,11 @@
 <?php
-
 require('controller/FrontOfficeController.php');
 require('controller/BackOfficeController.php');
 
-//require('view/backend/newPostView.php');
 $frontOfficeController = new FrontOfficeController();
 $backOfficeController = new BackOfficeController();
+
 try {
-
-
     if (isset($_GET['action'])) {
 
         switch ($_GET['action']) {
@@ -17,31 +14,46 @@ try {
                 $frontOfficeController->listPosts($page);
                 break;
             case 'admin-login':
-                $backOfficeController->adminLogin();
-                $_SESSION['email'] = $userEmail;
-                $_SESSION['password'] = $userPassword;
+                if (!isset($_SESSION)) {
+                    session_start();
+                    $backOfficeController->adminLogin();
+                }
+//
                 break;
             case 'admin':
                 $backOfficeController->admin();
                 break;
             case 'creer-article':
-                $backOfficeController->createPost();
+                if (isset($_SESSION)){
+                    $backOfficeController->createPost();
+                }
                 break;
             case 'add-post':
-                $backOfficeController->addPost();
+                if (isset($_SESSION)){
+                    $backOfficeController->addPost();
+                }
                 break;
             case 'article':
-                if (!empty($_GET['id']) && (isset($_GET['id']))){ /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
+                if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
                     $frontOfficeController->post();
                 }
                 break;
 
             case 'modifier-article':
-                $backOfficeController->editPost();
+                if (isset($_SESSION)){
+                    $backOfficeController->editPost();
+                }
                 break;
             case 'update-post':
-                $backOfficeController->updatePost();
+                if (isset($_SESSION)){
+                    $backOfficeController->updatePost();
+                }
                 break;
+            case 'logout':
+                    $backOfficeController->logOut();
+                break;
+
+
             case 'add-comment':
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     $frontOfficeController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);

@@ -1,3 +1,7 @@
+<?php
+//if (!isset($_SESSION)){
+//    session_start();
+//}  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +13,9 @@
 <form action="admin.php" method="post">
 
     <div><label for="email">Votre email</label>
-        <input type="text" name="email"></div>
+        <input type="text" name="email" required></div>
     <div><label for="password">Votre mot de passe</label>
-        <input type="password" name="password"/>
+        <input type="password" name="password" required/>
     </div>
     <input type="submit" value="Valider"/>
 </form>
