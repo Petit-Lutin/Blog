@@ -1,5 +1,5 @@
 <?php ob_start();
-//session_start();?>
+?>
 <div class="contenuPage">
     <div class="news">
         <h3>
@@ -43,14 +43,15 @@
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
-<!--        --><?php //var_dump($comment['author']);
-        if ($comment['reported']===1 ) {
+        <?php
+        if ($comment['reported'] === 1) {
 
             ?>
             <div class="reportedComment">Vous avez signalé ce commentaire.</div>
 
-
-        <?php } else {
+            <?php
+        } else
+            {
             ?>
             <p>
                 <button class="btn-warning btn-reportComment"><a
@@ -59,7 +60,6 @@
                 </button>
             </p>
             <?php
-
         }
     } ?>
 

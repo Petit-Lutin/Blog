@@ -23,7 +23,6 @@
                 <br/>
                 <em><a href="index.php?action=article&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
             </p>
-
         </div>
 
         <?php
@@ -34,13 +33,12 @@
     <a href="index.php?action=liste-articles&amp;page=<?= $page-1 ?>">page précédente</a>
     <?php
     }
-
     if ($posts->rowCount() === 5) {
-
         ?> <a href="index.php?action=liste-articles&amp;page=<?= $page+1 ?>">page suivante</a>
     <?php }
     ?>
 </div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

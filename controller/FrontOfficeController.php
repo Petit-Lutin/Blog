@@ -1,7 +1,7 @@
 <?php
 
 // Chargement des classes
-require_once ("model/DbConnect.php");
+require_once("model/DbConnect.php");
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
@@ -35,10 +35,7 @@ class FrontOfficeController
         $slug = $post['slug'];
 
         $title = htmlspecialchars($post['title']);
-      $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
-//        $comments = $commentManager->getComments($_GET['id']);
-//        $yourReportedComments = $commentManager->getReportedComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
-
+        $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
         require('view/frontend/postView.php');
     }
 

@@ -16,8 +16,7 @@ class BackOfficeController
     }
 
     public function adminLogin()
-    {
-        // formulaire d'authentification
+    { // formulaire d'authentification
         require('admin-login.php');
     }
 
@@ -31,11 +30,10 @@ class BackOfficeController
 
         if ($userEmailForm === $user['email']) {
             $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
-            $userPasswordDb = $user['password'];
+//            $userPasswordDb = $user['password'];
             $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
 
             if ($mdpOK === true) {
-
 
 //                $_SESSION['email'] = $userEmail;
 //                $_SESSION['password'] = $userPassword;session_start();
@@ -44,7 +42,6 @@ class BackOfficeController
 
         } else {
             echo "L'email ou le mot de passe est incorrect.";
-//            head
         }
     }
 
@@ -90,10 +87,7 @@ class BackOfficeController
 
     public function logOut()
     {
-//        if (isset($_SESSION)){
-//            session_destroy();
         unset ($_SESSION['email']);
         header('Location:index.php');
-//        }
     }
 }
