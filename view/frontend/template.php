@@ -33,10 +33,11 @@
     <!--        </div>-->
     <!--    </nav>-->
     <?php
-    if (!isset($_SESSION)) {
+//    if (!isset($_SESSION)) {
         require('view/backend/loginTemplate.php');
-    } else {
-        require('view/backend/loggedTemplate.php'); echo 'sessioooooon';
+//    } else {
+if (isset($_SESSION['email'])){
+        require('view/backend/loggedTemplate.php'); echo '';
         var_dump( $_SESSION['email']);
        var_dump( $_SESSION['password']);
 

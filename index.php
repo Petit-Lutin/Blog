@@ -4,8 +4,10 @@ require('controller/BackOfficeController.php');
 
 $frontOfficeController = new FrontOfficeController();
 $backOfficeController = new BackOfficeController();
+session_start();
 
 try {
+
     if (isset($_GET['action'])) {
 
         switch ($_GET['action']) {
@@ -14,24 +16,25 @@ try {
                 $frontOfficeController->listPosts($page);
                 break;
             case 'admin-login':
-                if (!isset($_SESSION)) {
-                    session_start();
-                    $backOfficeController->adminLogin();
-                }
+//                if (!isset($_SESSION)) {
+
+                $backOfficeController->adminLogin();
+//                }
 //
                 break;
             case 'admin':
                 $backOfficeController->admin();
+
                 break;
             case 'creer-article':
-                if (isset($_SESSION)){
-                    $backOfficeController->createPost();
-                }
+//                if (isset($_SESSION)){
+                $backOfficeController->createPost();
+//                }
                 break;
             case 'add-post':
-                if (isset($_SESSION)){
-                    $backOfficeController->addPost();
-                }
+//                if (isset($_SESSION)){
+                $backOfficeController->addPost();
+//                }
                 break;
             case 'article':
                 if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
@@ -40,17 +43,17 @@ try {
                 break;
 
             case 'modifier-article':
-                if (isset($_SESSION)){
-                    $backOfficeController->editPost();
-                }
+//                if (isset($_SESSION)){
+                $backOfficeController->editPost();
+//                }
                 break;
             case 'update-post':
-                if (isset($_SESSION)){
-                    $backOfficeController->updatePost();
-                }
+//                if (isset($_SESSION)){
+                $backOfficeController->updatePost();
+//                }
                 break;
             case 'logout':
-                    $backOfficeController->logOut();
+                $backOfficeController->logOut();
                 break;
 
 

@@ -3,7 +3,7 @@
 // Chargement des classes
 //use http\Header;
 
-require_once ("model/DbConnect.php");
+require_once("model/DbConnect.php");
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
@@ -17,9 +17,8 @@ class BackOfficeController
 
     public function adminLogin()
     {
+        // formulaire d'authentification
         require('admin-login.php');
-
-
     }
 
     public function admin()
@@ -35,11 +34,12 @@ class BackOfficeController
             $userPasswordDb = $user['password'];
             $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
 
-            if ($mdpOK == true) {
+            if ($mdpOK === true) {
+
+
+//                $_SESSION['email'] = $userEmail;
+//                $_SESSION['password'] = $userPassword;session_start();
                 header('Location:index.php');
-               session_start();
-                $_SESSION['email'] = $userEmail;
-                $_SESSION['password'] = $userPassword;
             }
 
         } else {
@@ -91,8 +91,9 @@ class BackOfficeController
     public function logOut()
     {
 //        if (isset($_SESSION)){
-            session_destroy();
-            header('Location:index.php');
+//            session_destroy();
+        unset ($_SESSION['email']);
+        header('Location:index.php');
 //        }
     }
 }

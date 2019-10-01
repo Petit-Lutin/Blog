@@ -1,9 +1,9 @@
 <?php
 require_once("model/Manager.php");
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+//if (!isset($_SESSION)) {
+//    session_start();
+//}
 class UserManager extends Manager
 {
     public function getUser()

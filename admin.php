@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 //echo 'je suis'. $_SESSION['email'];
-var_dump($_SESSION['email']);
-var_dump($userEmail);
+//var_dump($_SESSION['email']);
+//var_dump($_SESSION['email']);
