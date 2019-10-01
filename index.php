@@ -20,7 +20,6 @@ try {
                 break;
             case 'admin':
                 $backOfficeController->admin();
-
                 break;
             case 'creer-article':
                 $backOfficeController->createPost();

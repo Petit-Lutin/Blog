@@ -6,7 +6,7 @@
 </head>
 <body>
 <p>Pour administrer votre blog, veuillez saisir votre email et votre mot de passe :</p>
-<form action="admin.php" method="post">
+<form action="index.php?action=admin" method="post">
 
     <div><label for="email">Votre email</label>
         <input type="text" name="email" required></div>

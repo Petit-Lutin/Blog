@@ -38,20 +38,18 @@
     <!--On affiche les commentaires existants -->
     <?php
     while ($comment = $comments->fetch()) {
-
         ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
         <?php
-        if ($comment['reported'] === 1) {
-
+        // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
+        if ($comment['reported'] == 1) {
             ?>
             <div class="reportedComment">Vous avez signalé ce commentaire.</div>
-
             <?php
-        } else
-            {
+            // autrement on affiche un bouton "signaler"
+        } else {
             ?>
             <p>
                 <button class="btn-warning btn-reportComment"><a
@@ -62,7 +60,6 @@
             <?php
         }
     } ?>
-
 
     <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos injurieux ou offensants.
     </div>

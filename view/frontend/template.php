@@ -33,14 +33,9 @@
     <!--        </div>-->
     <!--    </nav>-->
     <?php
-//    if (!isset($_SESSION)) {
-        require('view/backend/loginTemplate.php');
-//    } else {
-if (isset($_SESSION['email'])){
-        require('view/backend/loggedTemplate.php'); echo '';
-        var_dump( $_SESSION['email']);
-       var_dump( $_SESSION['password']);
-
+    // si l'utilisateur est enregistré, on affiche une barre de navigation supplémentaire
+    if (isset($_SESSION['email'])) {
+        require('view/backend/loggedTemplate.php');
     }
     ?>
 
