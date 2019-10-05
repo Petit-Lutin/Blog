@@ -86,12 +86,14 @@ class BackOfficeController
         }
     }
 
-    public function manageComments()
+    public function manageComments($page)
     {
-        $commentManager = new CommentManager();
-        $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
-        require('view/backend/manageComments.php');
+        $postManager = new PostManager();
+        $posts = $postManager->getPosts($page);
 
+        $commentManager = new CommentManager();
+        $comments = $commentManager->listComments($page);
+        require('view/backend/manageComments.php');
     }
 
     public function logOut()

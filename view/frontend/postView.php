@@ -46,7 +46,8 @@
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
         if ($comment['reported'] == 1) {
             ?>
-            <div class="reportedComment">Vous avez signalé ce commentaire.</div>
+            <div class="reportedComment">Vous avez signalé ce commentaire.</div>         <hr>
+
             <?php
             // autrement on affiche un bouton "signaler"
         } else {
@@ -57,13 +58,15 @@
                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                 </button>
             </p>
+            <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos injurieux ou
+                offensants.
+            </div>
             <?php
         }
     } ?>
 
-    <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos injurieux ou offensants.
-    </div>
 
+    <strong>Ajouter un commentaire :</strong>
     <!-- Pour poster un commentaire -->
     <form action="index.php?action=add-comment&amp;id=<?= $post['id'] ?>" method="post">
         <div>

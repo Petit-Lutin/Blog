@@ -28,7 +28,8 @@ try {
                 $backOfficeController->addPost();
                 break;
             case 'gerer-commentaires':
-                $backOfficeController->manageComments();
+                $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
+                $backOfficeController->manageComments($page);
                 break;
             case 'article':
                 if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/

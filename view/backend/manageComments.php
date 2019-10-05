@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 <div class="contenuPage">
-    <p>Gérer les commentaires :</p>
+    <h2>Gérer les commentaires</h2>
     <!--    --><?php
     //    if ($comments->rowCount() === 0) {
     //        echo 'vous êtes arrivé sur la dernière page';
@@ -10,10 +10,14 @@
 
 
     <?php
-
+    $data = $posts->fetch();
 
     while ($comment = $comments->fetch()) {
-        ?>
+        ?><p>Sur <a
+                href="index.php?action=article&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a> :
+        </p>
+
+
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
@@ -32,10 +36,22 @@
                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                 </button>
             </p>
+            <hr>
+
             <?php
         }
-    } ?>
 
+    }
+    if ($page >= 1) {
+        ?>
+        <a href="index.php?action=gerer-commentaires&amp;page=<?= $page - 1 ?>">page précédente</a>
+        <?php
+    }
+    if ($comments->rowCount() === 10) {
+        ?> <a href="index.php?action=gerer-commentaires&amp;page=<?= $page + 1 ?>">page suivante</a>
+    <?php }
+
+    ?>
 </div>
 
 <?php $content = ob_get_clean(); ?>
