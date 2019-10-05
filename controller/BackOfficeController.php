@@ -34,7 +34,7 @@ class BackOfficeController
         if ((!empty($userEmailForm)) && (preg_match('#^[a-z0-9]{3,}\@[a-z0-9]{3,}\.[a-z]{2,}$#', $userEmailForm)) && ($userEmailForm === $user['email'])) {
             // syntaxe email correcte + email présent dans la table des utilisateurs
             if ($mdpOK === true) {
-                $_SESSION['email']=$user['email'];
+                $_SESSION['email'] = $user['email'];
                 header('Location:index.php'); // on peut se connecter
             } else {
                 require('admin-login.php');
@@ -86,9 +86,19 @@ class BackOfficeController
         }
     }
 
+    public function manageComments()
+    {
+        $commentManager = new CommentManager();
+        $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
+        require('view/backend/manageComments.php');
+
+    }
+
     public function logOut()
     {
         unset ($_SESSION['email']);
         header('Location:index.php');
     }
+
+
 }

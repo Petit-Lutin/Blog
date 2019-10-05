@@ -23,10 +23,12 @@ try {
                 break;
             case 'creer-article':
                 $backOfficeController->createPost();
-//                }
                 break;
             case 'add-post':
                 $backOfficeController->addPost();
+                break;
+            case 'gerer-commentaires':
+                $backOfficeController->manageComments();
                 break;
             case 'article':
                 if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
