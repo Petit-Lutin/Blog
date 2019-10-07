@@ -94,8 +94,8 @@ else {
 
     public function manageComments($page)
     {
-        $postManager = new PostManager();
-        $posts = $postManager->getPosts($page);
+//        $postManager = new PostManager();
+//        $posts = $postManager->getPosts($page);
 
         $commentManager = new CommentManager();
         $comments = $commentManager->listComments($page);

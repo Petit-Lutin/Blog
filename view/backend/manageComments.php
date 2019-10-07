@@ -5,11 +5,11 @@
     <h2>Gérer les commentaires</h2>
 
     <?php
-    $data = $posts->fetch();
+//    $data = $posts->fetch();
 
     while ($comment = $comments->fetch()) {
         ?><p>Sur <a
-                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($data['title']) ?></a> :
+                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a> :
         </p>
 
 
