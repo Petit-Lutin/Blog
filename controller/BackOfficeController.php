@@ -21,29 +21,35 @@ class BackOfficeController
 
     public function admin()
     { // pour l'accès à l'espace administration
-        $userManager = new UserManager();
-        $user = $userManager->getUser($_POST['email']); // on regarde si un mail correspond dans la table des utilisateurs enregistrés
+        if ((isset($_POST['email'])) && (isset($_POST['password']))) {
+            $userManager = new UserManager();
+            $user = $userManager->getUser($_POST['email']); // on regarde si un mail correspond dans la table des utilisateurs enregistrés
 
-        // ce qui est saisi par l'utilisateur/admin
-        $userEmailForm = htmlspecialchars($_POST['email']);
-        $userPasswordForm = htmlspecialchars($_POST['password']);
-        $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
+            // ce qui est saisi par l'utilisateur/admin
+            $userEmailForm = htmlspecialchars($_POST['email']);
+            $userPasswordForm = htmlspecialchars($_POST['password']);
+            $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
 
-        $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
+            $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
 
-        if ((!empty($userEmailForm)) && (preg_match('#^[a-z0-9]{3,}\@[a-z0-9]{3,}\.[a-z]{2,}$#', $userEmailForm)) && ($userEmailForm === $user['email'])) {
-            // syntaxe email correcte + email présent dans la table des utilisateurs
-            if ($mdpOK === true) {
-                $_SESSION['email'] = $user['email'];
-                header('Location:index.php'); // on peut se connecter
+            if ((!empty($userEmailForm)) && (preg_match('#^[a-z0-9]{3,}\@[a-z0-9]{3,}\.[a-z]{2,}$#', $userEmailForm)) && ($userEmailForm === $user['email'])) {
+                // syntaxe email correcte + email présent dans la table des utilisateurs
+                if ($mdpOK === true) {
+                    $_SESSION['email'] = $user['email'];
+                    header('Location:index.php'); // on peut se connecter
+                } else {
+                    require('admin-login.php');
+                    echo "L'email ou le mot de passe est incorrect."; // retour sur le formulaire d'authentification
+                }
             } else {
                 require('admin-login.php');
                 echo "L'email ou le mot de passe est incorrect."; // retour sur le formulaire d'authentification
             }
-        } else {
-            require('admin-login.php');
-            echo "L'email ou le mot de passe est incorrect."; // retour sur le formulaire d'authentification
         }
+else {
+    header('Location:index.php');
+}
+
     }
 
     public function createPost() //pour créer un nouvel article

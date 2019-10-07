@@ -3,18 +3,13 @@
 <?php ob_start(); ?>
 <div class="contenuPage">
     <h2>Gérer les commentaires</h2>
-    <!--    --><?php
-    //    if ($comments->rowCount() === 0) {
-    //        echo 'vous êtes arrivé sur la dernière page';
-    //    } ?>
-
 
     <?php
     $data = $posts->fetch();
 
     while ($comment = $comments->fetch()) {
         ?><p>Sur <a
-                href="index.php?action=article&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a> :
+                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($data['title']) ?></a> :
         </p>
 
 

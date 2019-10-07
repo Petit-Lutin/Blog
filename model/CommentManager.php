@@ -9,7 +9,7 @@ class CommentManager extends Manager
     {
         $db = DbConnect::getConnection();
         $offset = $page * 10;
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, (reports.comment_id IS NOT NULL) AS reported FROM comments LEFT JOIN reports ON (reports.comment_id = comments.id ) ORDER BY reports.comment_id AND comment_date_fr DESC LIMIT :offset, 10');
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, post_id, (reports.comment_id IS NOT NULL) AS reported FROM comments LEFT JOIN reports ON (reports.comment_id = comments.id ) ORDER BY reports.comment_id AND comment_date_fr DESC LIMIT :offset, 10');
         $comments->bindParam(':offset', $offset, PDO::PARAM_INT);
 
 //        $comments->execute(array($REMOTE_ADDR, $postId));

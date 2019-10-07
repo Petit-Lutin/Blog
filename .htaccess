@@ -1,3 +1,5 @@
+#FallbackResource /index.php
+
 RewriteEngine on
 
-RewriteRule index/([a-zA-Z0-9\-]+) index.php?action=article&slug=$1
+RewriteRule ^([a-zA-Z0-9\-]+)$ action=article&slug=$1
