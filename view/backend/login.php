@@ -7,7 +7,7 @@
 
 <body>
 <p>Pour administrer votre blog, veuillez saisir votre email et votre mot de passe :</p>
-<form action="index.php?action=admin" method="post">
+<form action="index.php?action=post-login" method="post">
     <div><label for="email">Votre email</label>
         <input type="email" name="email" required></div>
     <div><label for="password">Votre mot de passe</label>

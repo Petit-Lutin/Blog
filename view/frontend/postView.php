@@ -13,7 +13,6 @@
         slug de cette page = " <?= $post['slug'] ?>"
     </div>
     <?php
-    //    echo $post['id'];
 
 
     //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
