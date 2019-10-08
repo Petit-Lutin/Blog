@@ -107,5 +107,15 @@ class BackOfficeController
         header('Location:index.php');
     }
 
+    public function deleteComment($commentId, $content)
+    {
+        $commentManager = new CommentManager();
+        $comment = $commentManager->deleteComment($commentId, $content);
+        if ($commentId === false) {
+            throw new Exception('Impossible de ssupprimer le commentaire !');
+        }
+        header('Location:index.php?action=gerer-commentaires');
+    }
+
 
 }

@@ -53,4 +53,22 @@ class CommentManager extends Manager
         return $isOK;
     }
 
+    public function deleteComment($commentId, $content)
+    {
+        $db = DbConnect::getConnection();
+        $comment = $db->prepare('SELECT id, comment FROM comments WHERE id = ?');
+        $comment->execute([$commentId, $content]);
+
+        if ($commentId !== false) {
+            try {
+                $comment = $db->prepare('UPDATE comments SET comment="Ce commentaire a été supprimé car il contenait des propos injurieux ou
+                offensants." WHERE id = ?');
+                $comment->execute([$commentId, $content]);
+            }
+            catch (Exception $e) {
+                // le commentaire n'existe pas
+            }
+        }
+        return $comment;
+    }
 }

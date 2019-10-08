@@ -15,8 +15,9 @@
 
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-
+        <button class="btn-danger"><a href="index.php?action=delete-comment&id=<?= $comment['id'] ?>">Supprimer</a></button>
         <?php
+
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
         if ($comment['reported'] == 1) {
             ?>
@@ -30,6 +31,7 @@
                             href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                 </button>
+
             </p>
             <hr>
 

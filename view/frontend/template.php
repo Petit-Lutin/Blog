@@ -84,6 +84,6 @@
     </div>
 </footer>
 
-<script src="reportComment.js"></script>
+<!--<script src="reportComment.js"></script>-->
 </body>
 </html>

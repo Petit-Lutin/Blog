@@ -40,7 +40,6 @@
         ?>
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-
         <?php
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
         if ($comment['reported'] == 1) {

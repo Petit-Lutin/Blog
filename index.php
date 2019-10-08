@@ -31,6 +31,13 @@ try {
                 $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
                 $backOfficeController->manageComments($page);
                 break;
+            case 'delete-comment':
+                if (isset($_GET['commentid']) && (!empty($_GET['commentid']))) {
+                    $backOfficeController->deleteComment($_GET['commentid'], $_POST['comment_content']);
+                } else {
+                    throw new Exception("Veuillez choisir un commentaire");
+                }
+                break;
             case 'article':
                 if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
                     $frontOfficeController->post();
@@ -56,7 +63,6 @@ try {
             case'report-comment':
                 if (isset($_GET['commentid']) && (!empty($_GET['commentid']))) {
                     $frontOfficeController->reportComment($_GET['commentid'], $_SERVER['REMOTE_ADDR']);
-
                 } else {
 //                header('Location: index.php?action=article&id=' . $postId);
 // renvoyer une fonction erreur de controller qui prend en arg du texte et qui renvoie "erreur"
