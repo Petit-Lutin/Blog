@@ -31,9 +31,9 @@ strong {
     width: 80%;
 }
 
-h1 {
-    margin-bottom: 50px;
-}
+/*h1 {*/
+/*    margin-bottom: 50px;*/
+/*}*/
 
 .contenuPage {
     margin-top: 100px;
@@ -44,7 +44,7 @@ h1 {
 }
 
 .loggedBar {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .loggedBar ul {

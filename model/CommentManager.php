@@ -24,7 +24,6 @@ class CommentManager extends Manager
         return $comments;
     }
 
-
     public function postComment($postId, $author, $comment)
     {
         $db = DbConnect::getConnection();
@@ -58,17 +57,24 @@ class CommentManager extends Manager
         $db = DbConnect::getConnection();
         $comment = $db->prepare('SELECT id, comment FROM comments WHERE id = ?');
         $comment->execute([$commentId, $content]);
+        $comment_id = $comment->fetchColumn(); //on récupère l'ID du commentaire qu'on veut supprimer
 
-        if ($commentId !== false) {
+        if ($comment_id !== false) {
             try {
-                $comment = $db->prepare('UPDATE comments SET comment="Ce commentaire a été supprimé car il contenait des propos injurieux ou
-                offensants." WHERE id = ?');
-                $comment->execute([$commentId, $content]);
-            }
-            catch (Exception $e) {
+                $comment = $db->prepare('UPDATE comments SET :comment="Ce commentaire a été supprimé car il contenait des propos injurieux ou
+                offensants." WHERE id = :comment_id');
+//                $comment->execute([$commentId, $content]);
+//                $comment->bindParam(':comment_id', $commentId, PDO::PARAM_INT);
+                $comments->execute(['comment_id' => $commentId, 'comment'=>$content]);
+
+                echo "Voulez-vous supprimer/remplacer ce commentaire ?";
+
+            } catch
+            (Exception $e) {
                 // le commentaire n'existe pas
-            }
+            } var_dump($comment);
+            die();
+            return $comment;
         }
-        return $comment;
     }
 }

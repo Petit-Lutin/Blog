@@ -39,7 +39,7 @@
     ?>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <a class="navbar-brand" href="index.php?action=liste-articles&page=0"><h1>Billet simple pour

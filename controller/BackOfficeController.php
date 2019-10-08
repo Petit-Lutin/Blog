@@ -93,12 +93,20 @@ class BackOfficeController
 
     public function manageComments($page)
     {
-//        $postManager = new PostManager();
-//        $posts = $postManager->getPosts($page);
-
         $commentManager = new CommentManager();
         $comments = $commentManager->listComments($page);
         require('view/backend/manageComments.php');
+    }
+
+    public function deleteComment($commentId, $content)
+    {
+        $commentManager = new CommentManager();
+        $comment = $commentManager->deleteComment($commentId, $content);
+
+        if ($commentId === false) {
+            throw new Exception('Impossible de supprimer le commentaire !');
+        }
+        header('Location:index.php?action=gerer-commentaires');
     }
 
     public function logOut()
@@ -106,16 +114,4 @@ class BackOfficeController
         unset ($_SESSION['email']);
         header('Location:index.php');
     }
-
-    public function deleteComment($commentId, $content)
-    {
-        $commentManager = new CommentManager();
-        $comment = $commentManager->deleteComment($commentId, $content);
-        if ($commentId === false) {
-            throw new Exception('Impossible de ssupprimer le commentaire !');
-        }
-        header('Location:index.php?action=gerer-commentaires');
-    }
-
-
 }
