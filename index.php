@@ -15,11 +15,11 @@ try {
                 $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
                 $frontOfficeController->listPosts($page);
                 break;
-            case 'admin-login':
-                $backOfficeController->adminLogin();
+            case 'admin-login': //todo:get login puis postlogin
+                $backOfficeController->getLogin();
                 break;
             case 'admin':
-                $backOfficeController->admin();
+                $backOfficeController->postLogin();
                 break;
             case 'creer-article':
                 $backOfficeController->createPost();

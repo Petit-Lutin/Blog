@@ -9,6 +9,7 @@ class UserManager extends Manager
         $req = $db->prepare('SELECT pseudo, password, email FROM users WHERE email = ?');
         $req->execute([$userEmail]);
         $user = $req->fetch();
+
         return $user;
     }
 }

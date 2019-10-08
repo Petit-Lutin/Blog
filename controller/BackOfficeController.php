@@ -14,41 +14,47 @@ class BackOfficeController
     {
     }
 
-    public function adminLogin()
+    public function getLogin()
     { // formulaire d'authentification
-        require('admin-login.php');
+        require('view/backend/admin-login.php');
     }
 
-    public function admin()
+    public function postLogin()
     { // pour l'accès à l'espace administration
-        if ((isset($_POST['email'])) && (isset($_POST['password']))) {
+
+
+        if ((isset($_POST['email'])) && (!empty($_POST['email'])) && (preg_match('#^[a-z0-9]{3,}\@[a-z0-9]{3,}\.[a-z]{2,}$#', ($_POST['email'])) && (isset($_POST['password'])) && (!empty($_POST['password'])))){
             $userManager = new UserManager();
-            $user = $userManager->getUser($_POST['email']); // on regarde si un mail correspond dans la table des utilisateurs enregistrés
+        $userEmailForm = htmlspecialchars($_POST['email']);
 
-            // ce qui est saisi par l'utilisateur/admin
-            $userEmailForm = htmlspecialchars($_POST['email']);
+        $user = $userManager->getUser($userEmailForm); // on regarde si un mail correspond dans la table des utilisateurs enregistrés
+
+        // ce qui est saisi par l'utilisateur/admin
+
+
+        if ($user!==false) { //todo:se renseigner filter
+            // syntaxe email correcte + email présent dans la table des utilisateurs
             $userPasswordForm = htmlspecialchars($_POST['password']);
-            $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
+//            $hashPassword = password_hash($userPasswordForm, PASSWORD_DEFAULT); //on hash+sale le mdp saisi par l'utilisateur
+            $mdpOK = password_verify($userPasswordForm, $user['password']); // on compare le mdp saison avec celui enregistré
 
-            $mdpOK = password_verify($userPasswordForm, $hashPassword); // on compare le mdp saison avec celui enregistré
-
-            if ((!empty($userEmailForm)) && (preg_match('#^[a-z0-9]{3,}\@[a-z0-9]{3,}\.[a-z]{2,}$#', $userEmailForm)) && ($userEmailForm === $user['email'])) {
-                // syntaxe email correcte + email présent dans la table des utilisateurs
-                if ($mdpOK === true) {
-                    $_SESSION['email'] = $user['email'];
-                    header('Location:index.php'); // on peut se connecter
-                } else {
-                    require('admin-login.php');
-                    echo "L'email ou le mot de passe est incorrect."; // retour sur le formulaire d'authentification
-                }
+            if ($mdpOK === true) {
+                $_SESSION['email'] = $user['email'];
+                header('Location:index.php'); // on peut se connecter
             } else {
-                require('admin-login.php');
-                echo "L'email ou le mot de passe est incorrect."; // retour sur le formulaire d'authentification
+                $message="L'email ou le mot de passe est incorrect.";
+
+                require('view/backend/admin-login.php');
             }
+        } else {
+            $message="L'email ou le mot de passe est incorrect.";
+
+            require('view/backend/admin-login.php');
         }
-else {
-    header('Location:index.php');
-}
+    }
+    else {
+        header('Location:index.php');
+    }
 
     }
 
