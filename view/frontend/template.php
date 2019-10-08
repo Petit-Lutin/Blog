@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="public/css/bootstrap.min.css"
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <script src='https://cdn.tiny.cloud/1/jgj1tljq7t2ygjgfhk8qgs8h5x54v22ah86n0wocq3d06nbg/tinymce/5/tinymce.min.js'
             referrerpolicy="origin"></script>
     <script>

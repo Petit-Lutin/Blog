@@ -85,7 +85,7 @@ class BackOfficeController
             $content = $_POST['content'];
             $postManager = new PostManager();
             $updatedPost = $postManager->updatePost($_GET['id'], $title, $content);
-            header("Location: index.php?action=liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
+            header("Location: index.php?action=article&id=".$_GET['id']); //on redirige vers la liste des posts une fois que le post est créé
         } else {
             header("Location:index.php?action=modifier-article");
         }

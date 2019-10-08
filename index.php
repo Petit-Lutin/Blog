@@ -35,7 +35,7 @@ try {
                 if (isset($_GET['commentid']) && (!empty($_GET['commentid']))) {
                     $backOfficeController->deleteComment($_GET['commentid'], $_POST['comment_content']);
                 } else {
-                    throw new Exception("Veuillez choisir un commentaire");
+                    throw new Exception("Veuillez choisir un commentaire à supprimer");
                 }
                 break;
             case 'article':
@@ -75,6 +75,6 @@ try {
         $frontOfficeController->listPosts(0);
     }
 } catch (Exception $e) {
-    echo "ERREUR" . $e->getMessage();
+    echo "ERREUR " . $e->getMessage();
 }
 
