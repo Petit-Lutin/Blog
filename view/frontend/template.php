@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
+<!--    Bootstrap -->
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <script src='https://cdn.tiny.cloud/1/jgj1tljq7t2ygjgfhk8qgs8h5x54v22ah86n0wocq3d06nbg/tinymce/5/tinymce.min.js'
             referrerpolicy="origin"></script>
+
+<!--    TinyMCE-->
     <script>
         tinymce.init({
             selector: '#content'
@@ -16,21 +19,7 @@
 
 <body>
 <header>
-    <!--    <nav class="navbar navbar-expand-lg fixed-top">-->
-    <!--        <div class="container">-->
 
-
-    <!--            <a class="navbar-brand logo" href="index.php?action=listPosts&page=0"><h1>"Billet simple pour l'Alaska" par Jean-->
-    <!--                    Forteroche</h1></a>-->
-    <!--            <ul class="nav navbar-ml-auto">-->
-    <!--                <li class="navbar-item"><a href="index.php?action=createPost">Créer un article</a></li>-->
-    <!--                <li class="navbar-item">bla</li>-->
-    <!--                <li class="navbar-item">ble</li>-->
-    <!--                <li class="navbar-item">bli</li>-->
-
-    </ul>
-    <!--        </div>-->
-    <!--    </nav>-->
     <?php
     // si l'utilisateur est enregistré, on affiche une barre de navigation supplémentaire
     if (isset($_SESSION['email'])) {
@@ -55,9 +44,9 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <!--                        <li class="nav-item">-->
-                        <!--                            <a class="nav-link" href="#">Services</a>-->
-                        <!--                        </li>-->
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#">A propos</a>
+                                                </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>

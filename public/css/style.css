@@ -36,8 +36,9 @@ strong {
 /*}*/
 
 .contenuPage {
-    margin-top: 100px;
+    margin-top: 160px;
 }
+
 
 .deletedComment {
     display: none;
@@ -54,4 +55,8 @@ strong {
 .loggedBar ul li {
     list-style-type: none;
     padding: 5px;
+}
+
+footer{
+    margin-top : 20px;
 }
