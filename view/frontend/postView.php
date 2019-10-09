@@ -51,7 +51,7 @@
         } else {
             ?>
             <p>
-                <button class="btn-warning btn-reportComment"><a
+                <button class="btn btn-warning btn-reportComment"><a
                             href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                 </button>
