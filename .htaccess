@@ -2,4 +2,6 @@
 
 RewriteEngine on
 
-RewriteRule ^([a-zA-Z0-9\-]+)$ action=article&slug=$1
+RewriteRule ^/([a-zA-Z0-9\-]+)([0-9]+)$ index.php?action=article&slug=$2
+
+RewriteRule ^/liste-articles$ index.php?action=liste-articles

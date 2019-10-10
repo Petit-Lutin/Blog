@@ -13,7 +13,7 @@
         ?>
         <div class="news">
             <h3>
-                <a href="index.php?action=article&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+                <a href="index.php?action=article&amp;id=<?= $data['id'] ?>&amp;slug=<?=$data['slug']?>"><?= htmlspecialchars($data['title']) ?></a>
                 <em>le <?= $data['creation_date_fr'] ?></em><?php
                 if (isset($_SESSION['email'])) {
 
