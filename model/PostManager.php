@@ -1,7 +1,6 @@
 <?php
-require_once("model/Manager.php");
 
-class PostManager extends Manager
+class PostManager
 {
     public function getPosts($page = 0) //
     {

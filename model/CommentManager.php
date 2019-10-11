@@ -1,9 +1,8 @@
 <?php
 
-require_once("model/Manager.php");
 require_once("model/DbConnect.php");
 
-class CommentManager extends Manager
+class CommentManager
 {
     public function listComments($page = 0) // liste de tous les commentaires en backoffice
     {
