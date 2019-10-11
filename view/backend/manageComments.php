@@ -21,7 +21,7 @@
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
         if ($comment['reported'] == 1) {
             ?>
-            <div class="btn btn-warning reportedComment">Vous avez signalé ce commentaire.</div>
+            <div class="alert alert-dismissible alert-warning reportedComment">Vous avez signalé ce commentaire.</div>
             <?php
             // autrement on affiche un bouton "signaler"
         } else {

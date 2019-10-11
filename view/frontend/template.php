@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
-<!--    Bootstrap -->
+    <!--    Bootstrap -->
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <script src='https://cdn.tiny.cloud/1/jgj1tljq7t2ygjgfhk8qgs8h5x54v22ah86n0wocq3d06nbg/tinymce/5/tinymce.min.js'
             referrerpolicy="origin"></script>
 
-<!--    TinyMCE-->
+    <!--    TinyMCE-->
     <script>
         tinymce.init({
             selector: '#content'
@@ -44,9 +44,9 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">A propos</a>
-                                                </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">A propos</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
@@ -64,12 +64,12 @@
 </div>
 
 <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <ul class="navbar-nav">
-                <li class="nav-link nav-item active">&copy; Jean Forteroche</li>
-                <li class="nav-item"><a class="nav-link" href="#">Mentions légales</li>
-            </ul>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <ul class="navbar-nav">
+            <li class="nav-link nav-item active">&copy; Jean Forteroche</li>
+            <li class="nav-item"><a class="nav-link" href="#">Mentions légales</li>
+        </ul>
+    </nav>
     </div>
 </footer>
 

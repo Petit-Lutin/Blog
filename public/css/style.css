@@ -1,16 +1,16 @@
-h1, h3 {
+h1 {
     text-align: center;
 }
 
 h3 {
-    background-color: rgb(238, 195, 225);
-    color: rgb(0, 0, 0);
-    font-size: 0.9em;
-    margin-bottom: 0px;
+    /*background-color: rgb(238, 195, 225);*/
+    /*color: rgb(0, 0, 0);*/
+    /*font-size: 0.9em;*/
+    /*margin-bottom: 0px;*/
 }
 
 .news p {
-    background-color: #CCCCCC;
+    /*background-color: #CCCCCC;*/
 }
 
 .news {
