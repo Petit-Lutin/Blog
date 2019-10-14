@@ -28,39 +28,37 @@
     ?>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="mainNavbar navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <a class="navbar-brand" href="index.php?action=liste-articles&page=0"><h1>Billet simple pour
-                        l'Alaska</h1></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="index.php?action=liste-articles&page=0">Accueil
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">A propos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+            <a class="navbar-brand" href="index.php?action=liste-articles&page=0"><h1>Billet simple pour
+                    l'Alaska</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=liste-articles&page=0">Accueil
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
+
+
 <!-- Page Content -->
 <div class="container">
-    <!--    <h1 class="mt-4">Logo Nav by Start Bootstrap</h1>-->
-    <!--        <p >The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and height of the logo within the HTML or with CSS. For best results, use an SVG image as your logo.</p>-->
     <?= $content ?>
-
 </div>
 
 <footer>
@@ -70,7 +68,6 @@
             <li class="nav-item"><a class="nav-link" href="#">Mentions légales</li>
         </ul>
     </nav>
-    </div>
 </footer>
 
 <!--<script src="reportComment.js"></script>-->

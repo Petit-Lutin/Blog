@@ -13,13 +13,16 @@
             <div class="card-body">
 
                 <div class="card-text">
-
+                    <?php
+                    if (isset($_SESSION['email'])) {
+                    ?>
                     <p class="text-right">
                         <button class="btn btn-info disabled"><a class="card-link"
                                     href="index.php?action=modifier-article&amp;id=<?= $post['id'] ?>">Modifier</a>
                         </button>
                     </p>
-
+                    <?php }
+                    ?>
 
                     <p>
                         <?= nl2br($post['content']) ?>

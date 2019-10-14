@@ -23,15 +23,28 @@ try {
 
 //                créer un article
             case 'creer-article':
-                $backOfficeController->createPost();
+                if (isset($_SESSION['email'])) {
+                    $backOfficeController->createPost();
+                } else {
+                    $frontOfficeController->listPosts(0);
+                }
                 break;
             case 'add-post':
-                $backOfficeController->addPost();
+                if (isset($_SESSION['email'])) {
+
+                    $backOfficeController->addPost();
+                } else {
+                    $frontOfficeController->listPosts(0);
+                }
                 break;
 
 //             éditer un article
             case 'modifier-article':
-                $backOfficeController->editPost();
+                if (isset($_SESSION['email'])) {
+                    $backOfficeController->editPost();
+                } else {
+                    $frontOfficeController->listPosts(0);
+                }
                 break;
             case 'update-post':
                 $backOfficeController->updatePost();
