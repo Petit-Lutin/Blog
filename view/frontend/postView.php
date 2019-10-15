@@ -81,11 +81,7 @@
                                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                                 </button>
                             </p>
-                            <div class="deletedComment">Ce commentaire a été supprimé car il contenait des propos
-                                injurieux
-                                ou
-                                offensants.
-                            </div>
+
                             </li>
                             <?php
                         }
