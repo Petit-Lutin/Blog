@@ -9,8 +9,9 @@ RewriteRule ^([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
 #RewriteRule ^(.*)$ index.php?action=article&slug=$1
 
 RewriteRule ^liste-articles$ index.php?action=liste-articles
+RewriteRule ^$ index.php?action=liste-articles&page=0
+RewriteRule ^creer-article$ index.php?action=creer-article
+
+RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires
 
 
-#RewriteRule ^commune/(.*)$ %{ENV:REWRITEBASE}commune.php?nom=$1 [QSA,L]
-#RewriteRule ^departement/(.*)$ %{ENV:REWRITEBASE}departement.php?departement=$1 [QSA,L]
-#RewriteRule ^france$ %{ENV:REWRITEBASE}france.php [QSA,L] RewriteRule ^livraison/(.*)$ %{ENV:REWRITEBASE}livraison-php/$1.php [QSA,L]
