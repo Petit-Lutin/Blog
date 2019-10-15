@@ -5,7 +5,7 @@
 <div class="contenuPage">
 
     <div class="jumbotron">
-        <h3 class="display-6 text-center">Plongez dans la lecture du nouveau roman de Jean Forteroche !</h3>
+        <h3 class="display-6 text-center">Plongez dans la lecture du nouveau roman de Jean Forteroche&nbsp;!</h3>
     </div>
 
     <?php
@@ -32,7 +32,11 @@
                 <?php
                 if (isset($_SESSION['email'])) {
                     ?>
-                    <p><a href="index.php?action=modifier-article&amp;id=<?= $data['id'] ?>">Modifier</a></p>
+                    <p class="text-right">
+                        <button class="btn btn-outline-info nav-item"><a
+                                                                 href="index.php?action=modifier-article&amp;id=<?= $data['id'] ?>">Modifier</a>
+                        </button>
+                    </p>
                 <?php }
                 ?>
 

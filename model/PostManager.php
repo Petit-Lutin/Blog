@@ -30,11 +30,11 @@ class PostManager
         return $post;
     }
 
-    public function updatePost($postId, $title, $content)
+    public function updatePost($postId, $title, $content, $slug)
     {
         $db = DbConnect::getConnection();
-        $post = $db->prepare('UPDATE posts set title=?, content=? WHERE id = ?');
-        $affectedLines = $post->execute(array($title, $content, $postId));
+        $post = $db->prepare('UPDATE posts set title=?, content=?, slug=? WHERE id = ?');
+        $affectedLines = $post->execute(array($title, $content, $slug, $postId));
     }
 
     public function addPost($title, $content)

@@ -80,12 +80,13 @@ class BackOfficeController
 
     public function updatePost()
     {
-        if ((isset($_POST['title'])) && (isset($_POST['content']))) {
+        if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug']))) {
             $title = htmlspecialchars($_POST['title']);
             $content = $_POST['content'];
+            $slug = htmlspecialchars($_POST['slug']);
             $postManager = new PostManager();
-            $updatedPost = $postManager->updatePost($_GET['id'], $title, $content);
-            header("Location: index.php?action=article&id=".$_GET['id']); //on redirige vers la liste des posts une fois que le post est créé
+            $updatedPost = $postManager->updatePost($_GET['id'], $title, $content, $slug);
+            header("Location: index.php?action=article&id=" . $_GET['id']); //on redirige vers la liste des posts une fois que le post est créé
         } else {
             header("Location:index.php?action=modifier-article");
         }

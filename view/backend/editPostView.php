@@ -1,21 +1,40 @@
 <?php ob_start(); ?>
-    <form action="index.php?action=update-post&id=<?= $post['id']; ?>" method="post">
+    <div class="newEditPost">
 
-        <h2>Modifier un article</h2>
+        <form action="index.php?action=update-post&id=<?= $post['id']; ?>" method="post">
 
-        <label for="title">Titre de l'article</label>
+            <h2>Modifier un article</h2>
 
-        <input type="text" name="title" id="title" maxlength="255" value="<?php echo $post['title'];?>" required>
+            <label for="title">Titre de l'article</label>
 
-        <label for="content">Contenu</label>
-        <div id="tinyMCE">
+            <input type="text" name="title" id="title" maxlength="255" value="<?php echo $post['title']; ?>" required>
 
-            <textarea name="content" id="content" required><?= $post['content']; ?></textarea></div>
+            <label for="content">Contenu</label>
+            <div id="tinyMCE">
 
-        <input type="submit" value="Enregistrer">
+                <textarea name="content" id="content" required><?= $post['content']; ?></textarea></div>
 
 
-    </form>
+            <label for="slug">
+
+                URL personnalisée
+                <button type="button" class="btn btn-secondary" title="URL personnalisée" data-container="body"
+                        data-toggle="popover"
+                        data-placement="bottom" data-content="Vivamus
+              sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="URL personnalisée"
+                        aria-describedby="popover194453">
+                    ?
+                </button>
+            </label>
+            <input type="text" name="slug" id="slug" maxlength="255" value="<?php echo $post['slug']; ?>" required>
+
+
+            <input type="submit" value="Enregistrer">
+
+
+        </form>
+    </div>
+
 <?php
 $content = ob_get_clean(); ?>
 

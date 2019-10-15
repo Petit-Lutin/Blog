@@ -64,6 +64,11 @@ strong {
     z-index: 1;
 }
 
+.newEditPost{
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
 footer {
     margin-top: 20px;
 }
@@ -71,3 +76,4 @@ footer {
 .nav-link {
     padding: 0;
 }
+

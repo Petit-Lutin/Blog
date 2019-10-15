@@ -59,9 +59,9 @@
                     <?php
                     while ($comment = $comments->fetch()) {
                         ?>
-                        <li class="list-group-item  ">
+                        <li class="list-group-item ">
                         <p><strong><?= htmlspecialchars($comment['author']) ?></strong>
-                            le <?= $comment['comment_date_fr'] ?>
+                           <small class="text-muted">- le <?= $comment['comment_date_fr'] ?></small>
                         </p>
                         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                         <?php
