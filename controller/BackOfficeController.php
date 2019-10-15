@@ -99,10 +99,10 @@ class BackOfficeController
         require('view/backend/manageComments.php');
     }
 
-    public function deleteComment($commentId, $content)
+    public function deleteComment($commentId)
     {
         $commentManager = new CommentManager();
-        $comment = $commentManager->deleteComment($commentId, $content);
+        $comment = $commentManager->deleteComment($commentId);
 
         if ($commentId === false) {
             throw new Exception('Impossible de supprimer le commentaire !');

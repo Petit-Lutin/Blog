@@ -31,7 +31,7 @@
 
                     <?php
                     //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
-                    if ((null != $post['id'] + 1)) {
+                    if ((null != $post['id'] + 1) && !empty($post['id'] + 1)) {
                         $biggerId = $post['id'] + 1; ?>
 
                         <p><a href="index.php?action=article&amp;id=<?= $biggerId ?>">Post précédent (+ récent)</a></p>

@@ -23,12 +23,19 @@
     <?php
     // si l'utilisateur est enregistré, on affiche une barre de navigation supplémentaire
     if (isset($_SESSION['email'])) {
-        require('view/backend/loggedTemplate.php');
+//        require('view/backend/loggedTemplate.php');
     }
     ?>
 
     <!-- Navigation -->
     <nav class="mainNavbar navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <ul>
+                <li class="nav-item"><a class="nav-link" href="index.php?action=creer-article">Créer un article</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php?action=gerer-commentaires">Gérer les commentaires</a></li>
+                <li class="nav-item active"><a class="nav-link" href="index.php?action=logout">Se déconnecter</a></li>
+            </ul>
+        </div>
         <div class="container">
             <a class="navbar-brand" href="index.php?action=liste-articles&page=0"><h1>Billet simple pour
                     l'Alaska</h1></a>

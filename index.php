@@ -52,16 +52,22 @@ try {
 
 //                gérer les commentaires
             case 'gerer-commentaires':
-                $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
-                $backOfficeController->manageComments($page);
-                break;
-            case 'delete-comment':
-                if (isset($_GET['commentid']) && (!empty($_GET['commentid']))) {
-                    $backOfficeController->deleteComment($_GET['commentid'], $_POST['comment_content']);
-                } else {
-                    throw new Exception("Veuillez choisir un commentaire à supprimer");
+                if (isset($_SESSION['email'])) {
+                    $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
+                    $backOfficeController->manageComments($page);
                 }
                 break;
+
+            case 'delete-comment':
+                if (isset($_SESSION['email'])) {
+                    if (isset($_GET['commentid']) && (!empty($_GET['commentid']))) {
+                        $backOfficeController->deleteComment($_GET['commentid']);
+                    } else {
+                        throw new Exception("Veuillez choisir un commentaire à supprimer");
+                    }
+                }
+                break;
+
 //                se déconnecter
             case 'logout':
                 $backOfficeController->logOut();

@@ -5,17 +5,19 @@
     <h2>Gérer les commentaires</h2>
 
     <?php
-//    $data = $posts->fetch();
+    //    $data = $posts->fetch();
 
     while ($comment = $comments->fetch()) {
         ?><p>Sur <a
-                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a> :
+                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a>
+        :
         </p>
 
 
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <button class="btn btn-danger"><a href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
+        <button class="btn btn-danger" onclick="confirmDelete(event)"><a
+                    href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
         <?php
 
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
@@ -51,6 +53,14 @@
     ?>
 </div>
 
+<script>
+    function confirmDelete(e) {
+        if (!confirm("Voulez-vous vraiment supprimer ce commentaire ?")) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+</script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
