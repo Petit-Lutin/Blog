@@ -66,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `creation_date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  `slug` varchar(255) NOT null,
+  PRIMARY KEY (`id`,`slug`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 

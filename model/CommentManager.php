@@ -77,8 +77,7 @@ class CommentManager
 //            (Exception $e) {
 //                // le commentaire n'existe pas
 //            }
-// var_dump($comment);
-//            die();
+
         return $comment;
     }
 

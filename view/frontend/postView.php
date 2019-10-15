@@ -15,19 +15,18 @@
                 <div class="card-text">
                     <?php
                     if (isset($_SESSION['email'])) {
-                    ?>
-                    <p class="text-right">
-                        <button class="btn btn-info disabled"><a class="card-link"
-                                    href="index.php?action=modifier-article&amp;id=<?= $post['id'] ?>">Modifier</a>
-                        </button>
-                    </p>
+                        ?>
+                        <p class="text-right">
+                            <button class="btn btn-info disabled"><a class="card-link"
+                                                                     href="index.php?action=modifier-article&amp;id=<?= $post['id'] ?>">Modifier</a>
+                            </button>
+                        </p>
                     <?php }
                     ?>
 
                     <p>
                         <?= nl2br($post['content']) ?>
                     </p>
-                    slug de cette page = " <?= $post['slug'] ?>"
 
                     <?php
                     //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
@@ -61,7 +60,7 @@
                         ?>
                         <li class="list-group-item ">
                         <p><strong><?= htmlspecialchars($comment['author']) ?></strong>
-                           <small class="text-muted">- le <?= $comment['comment_date_fr'] ?></small>
+                            <small class="text-muted">- le <?= $comment['comment_date_fr'] ?></small>
                         </p>
                         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                         <?php
@@ -80,11 +79,18 @@
                                             href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                                             title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
                                 </button>
+                                <?php
+                                if (isset($_SESSION['email'])) { ?>
+                                    <button class="btn btn-danger" onclick="confirmDelete(event)"><a
+                                                href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a>
+                                    </button>
+                                <?php } ?>
                             </p>
 
                             </li>
                             <?php
                         }
+
                     } ?>
                     <!--                </ul>-->
 

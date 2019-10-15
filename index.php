@@ -85,6 +85,10 @@ try {
                 if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
                     $frontOfficeController->post();
                 }
+//                elseif (!empty($_GET['slug']) && (isset($_GET['slug']))){
+//                    $frontOfficeController->post();
+//
+//                }
                 break;
 
 //                ajouter un commentaire
