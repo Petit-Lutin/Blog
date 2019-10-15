@@ -50,11 +50,9 @@ strong {
     padding : 10px;
 }
 
-.loggedBar ul {
-    display: flex;
-}
 
-.loggedBar ul li {
+
+.admin ul li {
     list-style-type: none;
     padding: 5px;
 }
@@ -77,3 +75,7 @@ footer {
     padding: 0;
 }
 
+.admin ul{
+    display: flex;
+
+}

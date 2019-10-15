@@ -37,10 +37,10 @@ class PostManager
         $affectedLines = $post->execute(array($title, $content, $slug, $postId));
     }
 
-    public function addPost($title, $content)
+    public function addPost($title, $content, $slug)
     {
         $db = DbConnect::getConnection();
-        $newPost = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES(?, ?,  NOW())');
-        $affectedLines = $newPost->execute(array($title, $content));
+        $newPost = $db->prepare('INSERT INTO posts(title, content, creation_date, slug) VALUES(?, ?,  NOW())');
+        $affectedLines = $newPost->execute(array($title, $content, $slug));
     }
 }

@@ -6,12 +6,13 @@ RewriteEngine on
 
 RewriteRule ^article/([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
 RewriteRule ^([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
-#RewriteRule ^(.*)$ index.php?action=article&slug=$1
+RewriteRule ^([a-z0-9\-]+)$ index.php?action=article&slug=$1
 
 RewriteRule ^liste-articles$ index.php?action=liste-articles
-RewriteRule ^$ index.php?action=liste-articles&page=0
-RewriteRule ^creer-article$ index.php?action=creer-article
+RewriteRule ^liste-articles/page-([0-9]+)$ index.php?action=liste-articles&page=$1
+#RewriteRule ^$ index.php?action=liste-articles&page=0
 
-RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires
+#RewriteRule ^login$ index.php?action=login
+#RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires
 
 

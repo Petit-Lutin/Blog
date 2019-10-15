@@ -65,7 +65,8 @@
             if ($page >= 1) {
                 ?>
                 <div class="text-left">
-                    <a href="index.php?action=liste-articles&amp;page=<?= $page - 1 ?>">page précédente</a></div>
+                    <a href="liste-articles/page-<?= $page - 1 ?>">page précédente</a></div>
+
                 <?php
             } ?>
 <!--        </div>-->
@@ -76,8 +77,9 @@
 
             if ($posts->rowCount() === 5) {
                 ?>
-                <div class="text-right"><a href="index.php?action=liste-articles&amp;page=<?= $page + 1 ?>">page
+                <div class="text-right"><a href="liste-articles/page-<?= $page + 1 ?>">page
                         suivante</a></div>
+
             <?php }
             ?>
 <!--        </div>-->

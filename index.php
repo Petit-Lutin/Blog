@@ -70,7 +70,8 @@ try {
 
 //                se déconnecter
             case 'logout':
-                $backOfficeController->logOut();
+
+                    $backOfficeController->logOut();
                 break;
 
 //                PARTIE VISITEURS ET ADMINISTRATION
@@ -82,17 +83,17 @@ try {
 
 //                un article
             case 'article':
-                if (!empty($_GET['id']) && (isset($_GET['id']))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
+                if ((!empty($_GET['id']) && (isset($_GET['id'])) && (!empty($_GET['slug'])))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
                     $frontOfficeController->post();
                 }
-//                elseif (!empty($_GET['slug']) && (isset($_GET['slug']))){
+//                elseif ((!empty($_GET['slug']) && (isset($_GET['slug']))){
 //                    $frontOfficeController->post();
-//
 //                }
                 break;
 
 //                ajouter un commentaire
-            case 'add-comment':
+            case
+            'add-comment':
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     $frontOfficeController->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 }

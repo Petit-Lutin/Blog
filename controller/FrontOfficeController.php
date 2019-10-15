@@ -31,7 +31,7 @@ class FrontOfficeController
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $post = $postManager->getPost($_GET['id']);
+        $post = $postManager->getPost($_GET['id'], $_GET['slug']);
         $slug = $post['slug'];
 
         $title = htmlspecialchars($post['title']);

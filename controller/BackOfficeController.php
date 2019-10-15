@@ -48,7 +48,6 @@ class BackOfficeController
         } else {
             header('Location:index.php');
         }
-
     }
 
     public function createPost() //pour créer un nouvel article
@@ -62,7 +61,7 @@ class BackOfficeController
     { //pour poster un nouvel article
         $postManager = new PostManager();
         $postManager->addPost($_POST['title'], $_POST['content']);
-        if ((isset($_POST['title'])) && (isset($_POST['content']))) {
+        if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug']))) {
             header("Location:index.php?action=liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
         } else {
             header("Location:index.php?action=creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
@@ -75,6 +74,7 @@ class BackOfficeController
         $post = $postManager->getPost($_GET['id']);
         $title = htmlspecialchars($post['title']);
         $content = $post['content'];
+        $slug = htmlspecialchars($_POST['slug']);
         require('view/backend/editPostView.php');
     }
 
