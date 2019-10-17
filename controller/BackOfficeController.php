@@ -60,7 +60,7 @@ class BackOfficeController
     public function addPost()
     { //pour poster un nouvel article
         $postManager = new PostManager();
-        $postManager->addPost($_POST['title'], $_POST['content']);
+        $postManager->addPost($_POST['title'], $_POST['content'],$_POST['slug']);
         if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug'])) && (preg_match('#^[a-z0-9\-]{3,}$#', ($_POST['slug'])))) {
             header("Location:index.php?action=liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
         } else {
@@ -74,7 +74,7 @@ class BackOfficeController
         $post = $postManager->getPost($_GET['id']);
         $title = htmlspecialchars($post['title']);
         $content = $post['content'];
-        $slug = htmlspecialchars($_POST['slug']);
+        $slug = $post['slug'];
         require('view/backend/editPostView.php');
     }
 

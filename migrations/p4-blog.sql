@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment_date` datetime NOT NULL,
 PRIMARY KEY (`id`),
  FOREIGN KEY (post_id) REFERENCES posts(id)
-
+  ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
