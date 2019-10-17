@@ -86,9 +86,9 @@ class BackOfficeController
             $slug = htmlspecialchars($_POST['slug']);
             $postManager = new PostManager();
             $updatedPost = $postManager->updatePost($_GET['id'], $title, $content, $slug);
-            header("Location: index.php?action=article&id=" . $_GET['id']); //on redirige vers la liste des posts une fois que le post est créé
+            header("Location: ". $_GET['id']."/".$slug);
         } else {
-            header("Location:index.php?action=modifier-article");
+            header("Location:modifier-article/".$_GET['id']);
         }
     }
 

@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <h4 class="card-title">
                         <a class="card-link"
-                           href="index.php?action=article&amp;id=<?= $data['id'] ?>&amp;slug=<?= $data['slug'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+                           href="<?= $data['id'] ?>/<?= $data['slug'] ?>"><?= htmlspecialchars($data['title']) ?></a>
                         <small class="card-subtitle mb-2 text-muted">- le <?= $data['creation_date_fr'] ?></small>
                     </h4>
                 </div>
@@ -31,7 +31,7 @@
                         ?>
                         <p class="text-right">
                             <button class="btn btn-outline-info nav-item"><a
-                                        href="index.php?action=modifier-article&amp;id=<?= $data['id'] ?>">Modifier</a>
+                                        href="modifier-article/<?= $data['id'] ?>">Modifier</a>
                             </button>
                         </p>
                     <?php }
@@ -47,7 +47,7 @@
                     <div class="text-right">
                         <em>
                             <a class="card-link"
-                               href="index.php?action=article&amp;id=<?= $data['id'] ?>">Commentaires</a>
+                               href="<?= $data['id'] ?>/<?= $data['slug'] ?>#commentaires">Commentaires</a>
                         </em>
                     </div>
                 </div>

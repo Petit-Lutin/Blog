@@ -18,7 +18,7 @@
                         ?>
                         <p class="text-right">
                             <button class="btn btn-info disabled"><a class="card-link"
-                                                                     href="index.php?action=modifier-article&amp;id=<?= $post['id'] ?>">Modifier</a>
+                                                                     href="modifier-article/<?= $post['id'] ?>">Modifier</a>
                             </button>
                         </p>
                     <?php }
