@@ -61,7 +61,7 @@ class BackOfficeController
     { //pour poster un nouvel article
         $postManager = new PostManager();
         $postManager->addPost($_POST['title'], $_POST['content']);
-        if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug']))) {
+        if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug'])) && (preg_match('#^[a-z0-9\-]{3,}$#', ($_POST['slug'])))) {
             header("Location:index.php?action=liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
         } else {
             header("Location:index.php?action=creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
