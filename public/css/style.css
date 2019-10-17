@@ -2,19 +2,11 @@ h1 {
     text-align: center;
 }
 
-h3 {
-    /*background-color: rgb(238, 195, 225);*/
-    /*color: rgb(0, 0, 0);*/
-    /*font-size: 0.9em;*/
-    /*margin-bottom: 0px;*/
-}
-
 .news p {
     /*background-color: #CCCCCC;*/
 }
 
 .news {
-    /*width:70%;*/
     margin: auto;
 }
 
@@ -24,21 +16,17 @@ a {
 }
 
 strong {
-    /*color: blueviolet;*/
+    font-weight: bold;
 }
 
 #tinyMCE {
     width: 80%;
 }
 
-/*h1 {*/
-/*    margin-bottom: 50px;*/
-/*}*/
 
 .contenuPage {
     margin-top: 160px;
 }
-
 
 .deletedComment {
     display: none;
@@ -47,10 +35,8 @@ strong {
 .loggedBar {
     margin-bottom: 50px;
     z-index: 2;
-    padding : 10px;
+    padding: 10px;
 }
-
-
 
 .admin ul li {
     list-style-type: none;
@@ -62,7 +48,7 @@ strong {
     z-index: 1;
 }
 
-.newEditPost{
+.newEditPost {
     margin-top: 150px;
     margin-bottom: 50px;
 }
@@ -75,7 +61,16 @@ footer {
     padding: 0;
 }
 
-.admin ul{
+.admin ul {
     display: flex;
 
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination li{
+    list-style-type: none;
 }

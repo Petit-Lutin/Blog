@@ -8,12 +8,9 @@
         <h3 class="display-6 text-center">Plongez dans la lecture du nouveau roman de Jean Forteroche&nbsp;!</h3>
     </div>
 
+
     <?php
-    if ($posts->rowCount() === 0) {
-        echo 'vous êtes arrivé sur la dernière page';
-    } ?>
-    <?php
-    while ($data = $posts->fetch()) //
+    while ($data = $posts->fetch())
     {
         ?>
 
@@ -58,29 +55,44 @@
             </div>
         </div>
 
-        <?php
-    }
-    if ($page >= 1) {
-        ?>
-        <div class="text-left">
-            <a href="liste-articles/page-<?= $page - 1 ?>">page précédente</a>
-        </div>
-
-        <?php
-    } ?>
+    <?php } ?>
 
     <?php
+    if ($posts->rowCount() === 0) {
+        echo 'vous êtes arrivé sur la dernière page';
+    } ?>
 
-    if ($posts->rowCount() === 5) {
+
+    <ul class="pagination">
+
+        <?php
+        if ($page >= 1) {
+            ?>
+            <li>
+
+                <!--                <div class="text-left">-->
+                <a href="liste-articles/page-<?= $page - 1 ?>">page précédente</a>
+                <!--                </div>-->
+            </li>
+
+            <?php
+        } ?>
+
+
+        <?php
+        if ($posts->rowCount() === 5) {
+            ?>
+            <li>
+                <!--                <div class="text-right">-->
+                <a href="liste-articles/page-<?= $page + 1 ?>">page
+                    suivante</a>
+                <!--                </div>-->
+            </li>
+        <?php }
         ?>
 
-        <div class="text-right">
-            <a href="liste-articles/page-<?= $page + 1 ?>">page
-                suivante</a>
-        </div>
+    </ul>
 
-    <?php }
-    ?>
 </div>
 
 
