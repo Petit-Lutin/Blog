@@ -43,4 +43,12 @@ class PostManager
         $newPost = $db->prepare('INSERT INTO posts(title, content, creation_date, slug) VALUES(?, ?,  NOW())');
         $affectedLines = $newPost->execute(array($title, $content, $slug));
     }
+
+    public function deletePost($postId)
+    {
+        $db = DbConnect::getConnection();
+        $postToDelete = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $postToDelete->execute([$postId]);
+        return $postToDelete;
+    }
 }

@@ -40,6 +40,9 @@ PRIMARY KEY (`id`),
   ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
+ALTER TABLE comments ADD CONSTRAINT suppr_post_comments FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE ;
+
+
 --
 -- Déchargement des données de la table `comments`
 --

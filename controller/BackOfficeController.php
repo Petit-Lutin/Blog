@@ -92,6 +92,12 @@ class BackOfficeController
         }
     }
 
+    public function deletePost()
+    {
+        $postManager = new PostManager();
+$deletePost=$postManager->deletePost($_GET['id']);
+    }
+
     public function manageComments($page)
     {
         $commentManager = new CommentManager();
@@ -115,4 +121,6 @@ class BackOfficeController
         unset ($_SESSION['email']);
         header('Location:index.php');
     }
+
+
 }

@@ -50,6 +50,14 @@ try {
                 $backOfficeController->updatePost();
                 break;
 
+                // supprimer un article
+            case 'supprimer-article':
+                if (isset($_SESSION['email'])) {
+                    $backOfficeController->deletePost();
+                }
+                break;
+
+
 //                gérer les commentaires
             case 'gerer-commentaires':
                 if (isset($_SESSION['email'])) {
