@@ -60,11 +60,11 @@ class BackOfficeController
     public function addPost()
     { //pour poster un nouvel article
         $postManager = new PostManager();
-        $postManager->addPost($_POST['title'], $_POST['content'],$_POST['slug']);
+        $postManager->addPost($_POST['title'], $_POST['content'], $_POST['slug']);
         if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug'])) && (preg_match('#^[a-z0-9\-]{3,}$#', ($_POST['slug'])))) {
-            header("Location:index.php?action=liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
+            header("Location:liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
         } else {
-            header("Location:index.php?action=creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
+            header("Location:creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
         }
     }
 
@@ -86,16 +86,20 @@ class BackOfficeController
             $slug = htmlspecialchars($_POST['slug']);
             $postManager = new PostManager();
             $updatedPost = $postManager->updatePost($_GET['id'], $title, $content, $slug);
-            header("Location: ". $_GET['id']."/".$slug);
+            header("Location: " . $_GET['id']."/".$slug);
         } else {
-            header("Location:modifier-article/".$_GET['id']);
+            header("Location:modifier-article/" . $_GET['id']);
         }
     }
 
-    public function deletePost()
+    public function deletePost($postId)
     {
         $postManager = new PostManager();
-$deletePost=$postManager->deletePost($_GET['id']);
+        $deletePost = $postManager->deletePost($_GET['id']);
+
+        if ($postId === false) {
+            throw new Exception('Impossible de supprimer cet article !');
+        }
     }
 
     public function manageComments($page)

@@ -31,7 +31,7 @@ class FrontOfficeController
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $post = $postManager->getPost($_GET['id'], $_GET['slug']);
+        $post = $postManager->getPost($_GET['id'],$_GET['slug']);
         $slug = $post['slug'];
 
         $title = htmlspecialchars($post['title']);
@@ -43,11 +43,14 @@ class FrontOfficeController
     {
         $commentManager = new CommentManager();
         $affectedLines = $commentManager->postComment($postId, $author, $comment);
+        $postManager = new PostManager();
 
+        $post = $postManager->getPost($_GET['id']);
+        $slug = $post['slug'];
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
-            header('Location: index.php?action=article&id=' . $postId);
+            header('Location: ' . $postId.'/'.$slug);
         }
     }
 

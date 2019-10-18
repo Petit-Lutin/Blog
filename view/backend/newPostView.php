@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
     <div class="newEditPost">
-        <form action="index.php?action=addPost" method="post">
+        <form action="index.php?action=add-post" method="post">
 
             <h2>Rédiger un nouvel article</h2>
 

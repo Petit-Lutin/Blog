@@ -5,6 +5,7 @@ RewriteEngine on
 #RewriteRule ^/([a-zA-Z0-9\-]+)([0-9]+)$ index.php?action=article&slug=$2
 RewriteRule ^login$ index.php?action=login
 RewriteRule ^creer-article$ index.php?action=creer-article
+#RewriteRule ^add-post$ index.php?action=add-post
 RewriteRule ^logout$ index.php?action=logout
 RewriteRule ^modifier-article/([0-9]+)$ index.php?action=modifier-article&id=$1
 #RewriteRule ^update-post/([0-9]+)$ index.php?action=update-post&id=$1

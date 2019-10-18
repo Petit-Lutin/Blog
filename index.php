@@ -53,6 +53,7 @@ try {
                 // supprimer un article
             case 'supprimer-article':
                 if (isset($_SESSION['email'])) {
+
                     $backOfficeController->deletePost();
                 }
                 break;

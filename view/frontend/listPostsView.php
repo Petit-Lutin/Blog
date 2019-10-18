@@ -33,6 +33,7 @@
                             <button class="btn btn-outline-info nav-item"><a
                                         href="modifier-article/<?= $data['id'] ?>">Modifier</a>
                             </button>
+                            <button class="btn btn-outline-warning nav-item"><a href="supprimer-article/<?= $data['id']?>">Supprimer</a> </button>
                         </p>
                     <?php }
                     ?>

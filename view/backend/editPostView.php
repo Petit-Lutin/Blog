@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
     <div class="newEditPost">
 
-        <form action="index.php?action=update-post&id=<?= $post['id']; ?>" method="post">
+        <form action="update-post&id=<?= $post['id']; ?>" method="post">
 
             <h2>Modifier un article</h2>
 
