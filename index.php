@@ -26,7 +26,7 @@ try {
                 if (isset($_SESSION['email'])) {
                     $backOfficeController->createPost();
                 } else {
-                    require ('view/frontend/404.php');
+                    require('view/frontend/404.php');
                 }
                 break;
             case 'add-post':
@@ -34,7 +34,7 @@ try {
 
                     $backOfficeController->addPost();
                 } else {
-                    $frontOfficeController->listPosts(0);
+                    require('view/frontend/404.php');
                 }
                 break;
 
@@ -43,27 +43,37 @@ try {
                 if (isset($_SESSION['email'])) {
                     $backOfficeController->editPost();
                 } else {
-                    $frontOfficeController->listPosts(0);
+                    require('view/frontend/404.php');
                 }
                 break;
             case 'update-post':
-                $backOfficeController->updatePost();
+                if (isset($_SESSION['email'])) {
+                    $backOfficeController->updatePost();
+                } else {
+                    require('view/frontend/404.php');
+                }
                 break;
 
-                // supprimer un article
+            // supprimer un article
             case 'supprimer-article':
                 if (isset($_SESSION['email'])) {
 
                     $backOfficeController->deletePost();
+
+                } else {
+                    require('view/frontend/404.php');
                 }
                 break;
 
 
 //                gérer les commentaires
-            case 'gerer-commentaires':
+            case
+            'gerer-commentaires':
                 if (isset($_SESSION['email'])) {
                     $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 0;
                     $backOfficeController->manageComments($page);
+                } else {
+                    require('view/frontend/404.php');
                 }
                 break;
 
@@ -74,13 +84,15 @@ try {
                     } else {
                         throw new Exception("Veuillez choisir un commentaire à supprimer");
                     }
+                } else {
+                    require('view/frontend/404.php');
                 }
                 break;
 
 //                se déconnecter
             case 'logout':
 
-                    $backOfficeController->logOut();
+                $backOfficeController->logOut();
                 break;
 
 //                PARTIE VISITEURS ET ADMINISTRATION
@@ -119,8 +131,9 @@ try {
         }
 
     } else {
-        $frontOfficeController->listPosts(0);
+        require('view/frontend/404.php');
     }
+
 } catch (Exception $e) {
     echo "ERREUR " . $e->getMessage();
 }
