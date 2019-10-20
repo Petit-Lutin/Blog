@@ -10,8 +10,7 @@
 
 
     <?php
-    while ($data = $posts->fetch())
-    {
+    while ($data = $posts->fetch()) {
         ?>
 
         <div class="news">
@@ -33,7 +32,8 @@
                             <button class="btn btn-outline-info nav-item"><a
                                         href="modifier-article/<?= $data['id'] ?>">Modifier</a>
                             </button>
-                            <button class="btn btn-outline-warning nav-item"><a href="supprimer-article/<?= $data['id']?>">Supprimer</a> </button>
+                            <button class="btn btn-outline-warning nav-item"><a
+                                        href="supprimer-article/<?= $data['id'] ?>">Supprimer</a></button>
                         </p>
                     <?php }
                     ?>
@@ -59,9 +59,14 @@
     <?php } ?>
 
     <?php
-    if ($posts->rowCount() === 0) {
-        echo 'vous êtes arrivé sur la dernière page';
-    } ?>
+    if ($posts->rowCount() === 0) { ?>
+        <div class="container jumbotron text-center">
+            <p class="lead">Bravo, vous avez tout lu ! <br>
+                <a href="liste-articles/page-<?= $page - 1 ?>"> <i class="fas fa-angle-left flecheGauche"></i> Revenir à
+                    la
+                    page précédente</a>
+            </p>
+            <img class="readingFinished" src="public/img/snow-3953603_1920.jpg"></div>    <?php } ?>
 
 
     <ul class="pagination">
@@ -72,7 +77,8 @@
             <li>
 
                 <!--                <div class="text-left">-->
-                <a href="liste-articles/page-<?= $page - 1 ?>">page précédente</a>
+                <a href="liste-articles/page-<?= $page - 1 ?>"> <i class="fas fa-angle-left flecheGauche"></i>
+                    page précédente</a>
                 <!--                </div>-->
             </li>
 
@@ -86,7 +92,8 @@
             <li>
                 <!--                <div class="text-right">-->
                 <a href="liste-articles/page-<?= $page + 1 ?>">page
-                    suivante</a>
+                    suivante <i class="fas fa-angle-right flecheDroite"></i>
+                </a>
                 <!--                </div>-->
             </li>
         <?php }

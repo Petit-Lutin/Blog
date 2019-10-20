@@ -10,6 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <!--    FontAwesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <!--    TinyMCE-->
     <script src='https://cdn.tiny.cloud/1/jgj1tljq7t2ygjgfhk8qgs8h5x54v22ah86n0wocq3d06nbg/tinymce/5/tinymce.min.js'
             referrerpolicy="origin"></script>
@@ -39,7 +43,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item " href="creer-article">Créer un article</a>
-                        <a class="dropdown-item text-primary" href="gerer-commentaires/page-<?=$page?>">Gérer les
+                        <a class="dropdown-item text-primary" href="gerer-commentaires/page-<?= $page ?>">Gérer les
                             commentaires</a>
                         <a class="dropdown-item text-danger" href="logout">Se déconnecter</a>
                     </div>

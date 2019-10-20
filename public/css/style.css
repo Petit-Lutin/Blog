@@ -2,6 +2,16 @@ h1 {
     text-align: center;
 }
 
+body{
+    background-image: url("../img/cruise-ship-1253275_1920.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.readingFinished{
+    max-width:50%;
+
+}
 .news p {
     /*background-color: #CCCCCC;*/
 }
