@@ -39,7 +39,7 @@
                     </button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item " href="creer-article">Créer un article</a>
-                        <a class="dropdown-item text-primary" href="gerer-commentaires">Gérer les
+                        <a class="dropdown-item text-primary" href="gerer-commentaires/page-<?=$page?>">Gérer les
                             commentaires</a>
                         <a class="dropdown-item text-danger" href="logout">Se déconnecter</a>
                     </div>
@@ -103,6 +103,8 @@
 <script src="../../vendors/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 <script src="../../vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+<script src="../../public/js/Confirmation.js"></script>
+
 
 <!--<script src="vendors/bootstrap-3.3.7/js/bootstrap.min.js"-->
 

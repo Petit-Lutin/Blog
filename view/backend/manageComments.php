@@ -16,7 +16,9 @@
 
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <button class="btn btn-danger" onclick="confirmDelete(event)"><a
+        <button class="btn btn-danger confirmation"
+<!--                onclick="confirmDelete(event)-->
+"><a
                     href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
         <?php
 
