@@ -26,7 +26,7 @@ try {
                 if (isset($_SESSION['email'])) {
                     $backOfficeController->createPost();
                 } else {
-                    $frontOfficeController->listPosts(0);
+                    require ('view/frontend/404.php');
                 }
                 break;
             case 'add-post':

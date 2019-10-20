@@ -2,18 +2,15 @@ h1 {
     text-align: center;
 }
 
-body{
+body {
     background-image: url("../img/cruise-ship-1253275_1920.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.readingFinished{
-    max-width:50%;
+.readingFinished {
+    max-width: 50%;
 
-}
-.news p {
-    /*background-color: #CCCCCC;*/
 }
 
 .news {
@@ -58,14 +55,6 @@ strong {
     z-index: 1;
 }
 
-.newEditPost {
-    margin-top: 150px;
-    margin-bottom: 50px;
-}
-
-footer {
-    margin-top: 20px;
-}
 
 .nav-link {
     padding: 0;
@@ -76,11 +65,33 @@ footer {
 
 }
 
+
+
+.err404
+{
+    margin-top: 300px;
+    /*padding-top: 0;*/
+
+}
+
+.img404 {
+    max-width: 50%;
+}
+
+.newEditPost {
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+
 .pagination {
     display: flex;
     justify-content: space-between;
 }
 
-.pagination li{
+.pagination li {
     list-style-type: none;
+}
+
+footer {
+    margin-top: 20px;
 }
