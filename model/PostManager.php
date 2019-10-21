@@ -40,7 +40,7 @@ class PostManager
     public function addPost($title, $content, $slug)
     {
         $db = DbConnect::getConnection();
-        $newPost = $db->prepare('INSERT INTO posts(title, content, creation_date, slug) VALUES(?, ?,  NOW())');
+        $newPost = $db->prepare('INSERT INTO posts(title, content, creation_date, slug) VALUES(?, ?,  NOW(), ?)');
         $affectedLines = $newPost->execute(array($title, $content, $slug));
     }
 
@@ -49,6 +49,8 @@ class PostManager
         $db = DbConnect::getConnection();
         $postToDelete = $db->prepare('DELETE FROM posts WHERE id = ?');
         $postToDelete->execute([$postId]);
+        $commentsToDelete = $db->prepare('DELETE FROM comments WHERE post_id = ?');
+        $commentsToDelete->execute([$postId]);
         return $postToDelete;
     }
 }

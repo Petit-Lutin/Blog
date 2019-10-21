@@ -62,7 +62,7 @@ class BackOfficeController
         $postManager = new PostManager();
         $postManager->addPost($_POST['title'], $_POST['content'], $_POST['slug']);
         if ((isset($_POST['title'])) && (isset($_POST['content'])) && (isset($_POST['slug'])) && (preg_match('#^[a-z0-9\-]{3,}$#', ($_POST['slug'])))) {
-            header("Location:liste-articles&page=0"); //on redirige vers la liste des posts une fois que le post est créé
+            header("Location:liste-articles/page-0"); //on redirige vers la liste des posts une fois que le post est créé
         } else {
             header("Location:creer-article"); // sinon on reste sur la page de création d'article car titre ou contenu manquant
         }
@@ -95,11 +95,12 @@ class BackOfficeController
     public function deletePost($postId)
     {
         $postManager = new PostManager();
-        $deletePost = $postManager->deletePost($_GET['id']);
+        $deletePost = $postManager->deletePost($postId);
 
         if ($postId === false) {
             throw new Exception('Impossible de supprimer cet article !');
         }
+        header('Location:../index.php');
     }
 
     public function manageComments($page)

@@ -4,6 +4,7 @@ require('controller/BackOfficeController.php');
 
 $frontOfficeController = new FrontOfficeController();
 $backOfficeController = new BackOfficeController();
+
 session_start();
 
 try {
@@ -23,8 +24,11 @@ try {
 
 //                créer un article
             case 'creer-article':
+
                 if (isset($_SESSION['email'])) {
+
                     $backOfficeController->createPost();
+
                 } else {
                     require('view/frontend/404.php');
                 }
@@ -56,10 +60,8 @@ try {
 
             // supprimer un article
             case 'supprimer-article':
-                if (isset($_SESSION['email'])) {
-
-                    $backOfficeController->deletePost();
-
+                if (isset($_GET['id']) && isset($_SESSION['email'])) {
+                    $backOfficeController->deletePost($_GET['id']);
                 } else {
                     require('view/frontend/404.php');
                 }
@@ -131,7 +133,7 @@ try {
         }
 
     } else {
-        require('view/frontend/404.php');
+        $frontOfficeController->listPosts(0);
     }
 
 } catch (Exception $e) {

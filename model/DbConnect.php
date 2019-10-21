@@ -12,7 +12,7 @@ class DbConnect
     {
         if (self::$connection === null) {
             self::$connection = new PDO(CONFIG['host'], CONFIG['username'], CONFIG['password']);
-//            self::$connection = new PDO('mysql:host=localhost;dbname=p4-blog;charset=utf8', 'root', '');
+            self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         return self::$connection;
     }
@@ -20,6 +20,6 @@ class DbConnect
 //protected function dbConnect()
 //{
 //    $db = new PDO('mysql:host=localhost;dbname=p4-blog;charset=utf8', 'root', '');
-//    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set Errorhandling to Exception //todo afficher les erreurs ?
+//    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set Errorhandling to Exception
 //    return $db;
 //}

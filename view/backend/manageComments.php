@@ -5,7 +5,6 @@
     <h2>Gérer les commentaires</h2>
 
     <?php
-    //    $data = $posts->fetch();
 
     while ($comment = $comments->fetch()) {
         ?><p>Sur <a
@@ -16,10 +15,10 @@
 
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <button class="btn btn-danger confirmation"
-<!--                onclick="confirmDelete(event)-->
-"><a
-                    href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
+        <button class="btn btn-danger confirmation">
+                        onclick="confirmDelete(event, "Voulez-vous vraiment supprimer ce commentaire ?")
+       <a
+                href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
         <?php
 
         // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
@@ -45,23 +44,17 @@
     }
     if ($page >= 1) {
         ?>
-        <a href="index.php?action=gerer-commentaires&amp;page=<?= $page - 1 ?>">page précédente</a>
+        <a href="/gerer-commentaires/page-<?= $page - 1 ?>">page précédente</a>
         <?php
     }
     if ($comments->rowCount() === 10) {
-        ?> <a href="index.php?action=gerer-commentaires&amp;page=<?= $page + 1 ?>">page suivante</a>
+        ?> <a href="gerer-commentaires/page-<?= $page + 1 ?>">page suivante</a>
     <?php }
 
     ?>
 </div>
 
-<script>
-    function confirmDelete(e) {
-        if (!confirm("Voulez-vous vraiment supprimer ce commentaire ?")) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }
+<script src="../public/js/Confirmation.js"
 </script>
 <?php $content = ob_get_clean(); ?>
 

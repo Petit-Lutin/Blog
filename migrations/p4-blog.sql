@@ -40,7 +40,7 @@ PRIMARY KEY (`id`),
   ON DELETE CASCADE
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
-ALTER TABLE comments ADD CONSTRAINT suppr_post_comments FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE ;
+-- ALTER TABLE comments ADD CONSTRAINT suppr_post_comments FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE ;
 
 
 --
@@ -48,14 +48,14 @@ ALTER TABLE comments ADD CONSTRAINT suppr_post_comments FOREIGN KEY (post_id) RE
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `comment_date`) VALUES
-(1, 1, 'bob', 'lol', '2019-07-29 12:00:00', ''),
-(2, 1, 'bob 2', 'seriously ?', '2019-07-29 17:00:00', ''),
-(3, 1, 'bob', 'lol', '2019-07-29 12:00:00', ''),
-(4, 1, 'bob 2', 'seriously ?', '2019-07-29 17:00:00', ''),
-(5, 2, 'ff', 'ff', '2019-07-29 11:46:59', ''),
-(6, 7, 'sdsd', 'sdsdsd', '2019-09-09 10:38:37', ''),
-(7, 7, 'sdsf', 'sdfsdfffff', '2019-09-09 10:39:18', ''),
-(8, 10, 'john', 'test commentaire', '2019-09-11 09:48:56', '');
+(1, 1, 'bob', 'lol', '2019-07-29 12:00:00'),
+(2, 1, 'bob 2', 'seriously ?', '2019-07-29 17:00:00'),
+(3, 1, 'bob', 'lol', '2019-07-29 12:00:00'),
+(4, 1, 'bob 2', 'seriously ?', '2019-07-29 17:00:00'),
+(5, 2, 'ff', 'ff', '2019-07-29 11:46:59'),
+(6, 7, 'sdsd', 'sdsdsd', '2019-09-09 10:38:37'),
+(7, 7, 'sdsf', 'sdfsdfffff', '2019-09-09 10:39:18'),
+(8, 10, 'john', 'test commentaire', '2019-09-11 09:48:56');
 
 -- --------------------------------------------------------
 

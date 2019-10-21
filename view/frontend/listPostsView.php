@@ -69,17 +69,20 @@
             <img class="readingFinished" src="public/img/snow-3953603_1920.jpg"></div>    <?php } ?>
 
 
-    <ul class="pagination">
+    <ul class="pagination navbar">
 
         <?php
         if ($page >= 1) {
             ?>
             <li>
 
-                <!--                <div class="text-left">-->
-                <a href="liste-articles/page-<?= $page - 1 ?>"> <i class="fas fa-angle-left flecheGauche"></i>
-                    page précédente</a>
-                <!--                </div>-->
+                <button class="btn btn-primary"><a class="nav-link nav-item active"
+                                                   href="liste-articles/page-<?= $page - 1 ?>">
+                        <div class="text-secondary">
+                            <i class="fas fa-angle-left flecheGauche"></i>
+                            page précédente
+                        </div>
+                    </a></button>
             </li>
 
             <?php
@@ -90,11 +93,11 @@
         if ($posts->rowCount() === 5) {
             ?>
             <li>
-                <!--                <div class="text-right">-->
-                <a href="liste-articles/page-<?= $page + 1 ?>">page
-                    suivante <i class="fas fa-angle-right flecheDroite"></i>
-                </a>
-                <!--                </div>-->
+                <button class="btn btn-primary"><a href="liste-articles/page-<?= $page + 1 ?>">
+                        <div class="text-secondary">
+                            page
+                            suivante <i class="fas fa-angle-right flecheDroite"></i></div>
+                    </a></button>
             </li>
         <?php }
         ?>
