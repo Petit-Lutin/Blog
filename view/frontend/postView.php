@@ -5,7 +5,7 @@
         <div class="card border-secondary mb-3">
             <div class="card-header">
                 <h4 class="card-title">
-                    <a href="index.php?action=article&amp;id=<?= $post['id'] ?>"> <?= htmlspecialchars($post['title']) ?></a>
+                    <a href="<?= $post['id'] ?>"> <?= htmlspecialchars($post['title']) ?></a>
                     <small class="card-subtitle mb-2 text-muted">- le <?= $post['creation_date_fr'] ?></small>
                 </h4>
             </div>
@@ -27,23 +27,40 @@
                     <p>
                         <?= nl2br($post['content']) ?>
                     </p>
+                    <ul class="pagination navbar">
 
-                    <?php
-                    //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
-                    if ((null != $post['id'] + 1) && !empty($post['id'] + 1)) {
-                        $biggerId = $post['id'] + 1; ?>
-
-                        <p><a href="index.php?action=article&amp;id=<?= $biggerId ?>">Post précédent (+ récent)</a></p>
                         <?php
-                    }
+                        //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
+                        if ((null != $post['id'] + 1) && !empty($post['id'] + 1)) {
+                            $biggerId = $post['id'] + 1; ?>
+                            <li>
 
-                    if (null != $post['id'] - 1) {
-                        $smallerId = $post['id'] - 1;
+                                <a href="../<?= $biggerId ?>">
+                                    <button class="btn btn-outline-primary">
+                                        <i class="fas fa-angle-left flecheGauche"></i>
+                                        Article précédent (plus récent)
+                                    </button>
+                                </a>
+                            </li>
+                            <?php
+                        }
+
+                        if (null != $post['id'] - 1) {
+                            $smallerId = $post['id'] - 1;
+                            ?>
+                            <li>
+                                <a href="../<?= $smallerId ?>">
+                                    <button class="btn btn-outline-primary">
+                                        Article suivant (plus ancien) <i
+                                                class="fas fa-angle-right flecheDroite"></i>
+                                    </button>
+                                </a>
+                            </li>
+                            <?php
+                        }
                         ?>
-                        <p><a href="index.php?action=article&amp;id=<?= $smallerId ?>">Post suivant (+ ancien)</a></p>
-                        <?php
-                    }
-                    ?>
+
+                    </ul>
 
                 </div>
             </div>
