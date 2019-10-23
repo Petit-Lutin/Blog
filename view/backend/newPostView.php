@@ -5,16 +5,12 @@
 
             <h2>Rédiger un nouvel article</h2>
             <div class="titlePost">
-                <!--                <label for="title">Titre de l'article</label>-->
-<!--                <input type="text" name="title" id="title" maxlength="255" placeholder="Titre de l'article" required>-->
-                <input type="text" class="form-control" id="title" aria-describedby="titrearticle" placeholder="Titre de l'article" axlength="255" required>
+                <input type="text" class="form-control text-primary" id="title" aria-describedby="titrearticle" placeholder="Titre de l'article" maxlength="255" required>
 
             </div>
 
             <div class="contentPost">
-                <!--                <label for="content">Contenu</label>-->
                 <div id="tinyMCE">
-<!--                    <textarea name="content" id="content"></textarea>-->
                     <textarea class="form-control" name="content" id="content"></textarea>
                 </div>
             </div>
