@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
-    <?= CONFIG['baseHref'] ?>
+<!--    --><?//= CONFIG['baseHref'] ?>
 
     <!--    Bootstrap -->
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -24,7 +24,7 @@
     </script>
 
     <!--    CSS custom -->
-    <link href="public/css/style.css" rel="stylesheet"/>
+    <link href="/public/css/style.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -57,7 +57,7 @@
         ?>
 
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../../index.php">
                 <h1>Billet simple pour
                     l'Alaska</h1>
             </a>
