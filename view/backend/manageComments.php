@@ -2,22 +2,24 @@
 
 <?php ob_start(); ?>
 <div class="contenuPage">
-    <h2>Gérer les commentaires</h2>
+    <div class="manageComments">
+        <h2>Gérer les commentaires</h2>
 
     <?php
 
     while ($comment = $comments->fetch()) {
+        $post=$posts->fetch();
         ?><p>Sur <a
-                href="index.php?action=article&amp;id=<?= $comment['post_id'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a>
+                href="../<?= $comment['post_id'] ?>/<?=$post['slug']?>"><?= htmlspecialchars($comment['post_title']) ?></a>
         :
         </p>
 
 
         <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <button class="btn btn-danger confirmation">
-                        onclick="confirmDelete(event, "Voulez-vous vraiment supprimer ce commentaire ?")
-       <a
+        <button class="btn btn-danger confirmation"
+                onclick="confirmDelete(event, " Voulez-vous vraiment supprimer ce commentaire ?")>
+        <a
                 href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
         <?php
 
@@ -53,7 +55,7 @@
 
     ?>
 </div>
-
+</div>
 <script src="../public/js/Confirmation.js"
 </script>
 <?php $content = ob_get_clean(); ?>

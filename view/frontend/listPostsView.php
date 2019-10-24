@@ -48,7 +48,7 @@
                     <div class="text-right">
                         <em>
                             <a class="card-link"
-                               href="<?= $data['id'] ?>/<?= $data['slug'] ?>#commentaires">Commentaires</a>
+                               href="../<?= $data['id'] ?>/<?= $data['slug'] ?>#commentaires">Commentaires</a>
                         </em>
                     </div>
                 </div>

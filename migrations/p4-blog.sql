@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 22 oct. 2019 à 06:45
--- Version du serveur :  5.7.23
--- Version de PHP :  7.2.10
+-- Généré le :  jeu. 24 oct. 2019 à 09:36
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,18 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `name` varchar(255) NOT NULL,
-  `post_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `comments`
 --
 
@@ -49,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -64,11 +52,10 @@ INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `comment_date`) VA
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `posts`
+---- Structure de la table `posts`
 --
 
-DROP TABLE IF EXISTS `posts`;
+-- DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -76,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `creation_date` datetime NOT NULL,
   `slug` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`

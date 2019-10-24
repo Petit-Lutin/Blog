@@ -5,7 +5,8 @@
 
             <h2>Rédiger un nouvel article</h2>
             <div class="titlePost">
-                <input type="text" class="form-control text-primary" id="title" aria-describedby="titrearticle" placeholder="Titre de l'article" maxlength="255" required>
+                <input type="text" class="form-control text-primary" id="title" name="title" aria-describedby="titrearticle"
+                       placeholder="Titre de l'article" maxlength="255" required>
 
             </div>
 
@@ -17,14 +18,17 @@
             <label for="slug">
                 <button type="button" class="btn btn-secondary" title="" data-container="body" data-toggle="popover"
                         data-placement="bottom" data-content="Vivamus
-              sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="URL personnalisée"
+              sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="URL personnalisée" name="slug"
                         aria-describedby="popover194453">
                     URL personnalisée
                 </button>
                 <br>
 
             </label>
-            <input type="text" name="slug" id="slug" maxlength="255" required>
+
+            <input type="text" name="slug" class="form-control text-primary" aria-describedby="URLpersonnalisée"
+                   id="slug" maxlength="255" required>
+
             <button class="btn btn-primary" type="submit">Enregistrer</button>
 
         </form>

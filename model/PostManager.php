@@ -7,14 +7,6 @@ class PostManager
         $db = DbConnect::getConnection();
         $offset = $page * 5; //offset sert à savoir quel est l'article le plus bas affiché sur la page, avec 5 articles par page
 
-//        $req = $db->query('SELECT COUNT(*) FROM posts');
-//        $nbArticles = $req[0];
-
-//        $nbArticles = $req->fetch()[0]; //pour PHP on récupère un tableau alors que notre requête SQL retourne une seule valeur, donc on demande la première ligne du tableau
-//        $nbArticles = $req->fetchColumn(); //pour PHP on récupère un tableau alors que notre requête SQL retourne une seule valeur, donc on demande la première ligne du tableau // 1er champ de la 1ère ligne
-
-//        $pageNb = ceil($nbArticles / 5);
-//        echo $pageNb;
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr, slug FROM posts ORDER BY creation_date DESC LIMIT :offset, 5');
         $req->bindParam(':offset', $offset, PDO::PARAM_INT);
         $req->execute();
@@ -49,8 +41,8 @@ class PostManager
         $db = DbConnect::getConnection();
         $postToDelete = $db->prepare('DELETE FROM posts WHERE id = ?');
         $postToDelete->execute([$postId]);
-        $commentsToDelete = $db->prepare('DELETE FROM comments WHERE post_id = ?');
-        $commentsToDelete->execute([$postId]);
+//        $commentsToDelete = $db->prepare('DELETE FROM comments WHERE post_id = ?');
+//        $commentsToDelete->execute([$postId]);
         return $postToDelete;
     }
 }

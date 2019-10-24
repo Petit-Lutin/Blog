@@ -17,7 +17,6 @@ class CommentManager
     public function getComments($postId, $REMOTE_ADDR) //pour afficher les commentaires sous chaque article, et les afficher différemment selon si l'utilisateur les a signalés ou non
     {
         $db = DbConnect::getConnection();
-//        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, (reports.comment_id IS NOT NULL) AS reported FROM comments LEFT JOIN reports ON (reports.comment_id = comments.id AND reports.user_ip=:userip) WHERE post_id = :postid ORDER BY comment_date_fr DESC ');
         $comments->execute(['userip' => $REMOTE_ADDR, 'postid' => $postId]);
         return $comments;

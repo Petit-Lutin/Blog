@@ -27,8 +27,8 @@
                     ?
                 </button>
             </label>
-            <input type="text" name="slug" id="slug" maxlength="255" value="<?php echo $post['slug']; ?>" required>
-            
+            <input type="text" name="slug" class="form-control text-primary" aria-describedby="URLpersonnalisée" id="slug" maxlength="255" value="<?php echo $post['slug']; ?>" required>
+
             <button class="btn btn-primary" type="submit">Enregistrer</button>
 
         </form>

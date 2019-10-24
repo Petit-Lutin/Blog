@@ -17,9 +17,15 @@
                     if (isset($_SESSION['email'])) {
                         ?>
                         <p class="text-right">
-                            <button class="btn btn-info disabled"><a class="card-link"
-                                                                     href="modifier-article/<?= $post['id'] ?>">Modifier</a>
-                            </button>
+                            <a class="card-link"
+                               href="../modifier-article/<?= $post['id'] ?>">
+                                <button class="btn btn-info disabled">Modifier</button>
+                            </a>
+
+                            <a href="../supprimer-article/<?= $post['id'] ?>" onclick="confirmDelete(event, "
+                               Voulez-vous vraiment supprimer cet article ?")>
+                                                        <button class="btn btn-warning disabled nav-item">Supprimer</button>
+                            </a>
                         </p>
                     <?php }
                     ?>
@@ -59,7 +65,6 @@
                             <?php
                         }
                         ?>
-
                     </ul>
 
                 </div>
@@ -68,8 +73,6 @@
             <div class="modal-header"><h4>Commentaires</h4></div>
             <div class="modal-body">
                 <ul class="list-group list-group-flush">
-
-                    <!--                <div class="card-text">-->
 
                     <!--On affiche les commentaires existants -->
                     <?php
@@ -85,7 +88,6 @@
                         if ($comment['reported'] == 1) {
                             ?>
                             <div class="reportedComment">Vous avez signalé ce commentaire.</div>
-                            <!--                        <hr>-->
 
                             <?php
                             // autrement on affiche un bouton "signaler"
@@ -109,14 +111,11 @@
                         }
 
                     } ?>
-                    <!--                </ul>-->
-
-                    <!--                </div>-->
 
                     <li class="list-group-item">
                         <h5>Ajouter un commentaire :</h5>
                         <!-- Pour poster un commentaire -->
-                        <form action="index.php?action=add-comment&amp;id=<?= $post['id'] ?>" method="post">
+                        <form action="../index.php?action=add-comment&amp;id=<?= $post['id'] ?>" method="post">
                             <div>
                                 <label for="author">Votre nom ou pseudo</label><br/>
                                 <input type="text" id="author" name="author" required/>
@@ -136,9 +135,11 @@
 
             <div class="card-footer">
                 <p><a href="index.php?action=liste-articles&page=0">Retour à la liste des articles</a></p>
-
             </div>
-        </div>
-        <?php $content = ob_get_clean(); ?>
 
-        <?php require('template.php'); ?>
+        </div>
+    </div>
+</div>
+<?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>

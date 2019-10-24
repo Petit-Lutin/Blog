@@ -106,6 +106,8 @@ class BackOfficeController
     public function manageComments($page)
     {
         $commentManager = new CommentManager();
+        $postManager=new PostManager();
+        $posts=$postManager->getPosts();
         $comments = $commentManager->listComments($page);
         require('view/backend/manageComments.php');
     }
