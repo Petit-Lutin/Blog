@@ -29,11 +29,14 @@
                     if (isset($_SESSION['email'])) {
                         ?>
                         <p class="text-right">
-                            <button class="btn btn-outline-info nav-item"><a
-                                        href="modifier-article/<?= $data['id'] ?>">Modifier</a>
-                            </button>
-                            <button class="btn btn-outline-warning nav-item"><a
-                                        href="supprimer-article/<?= $data['id'] ?>">Supprimer</a></button>
+                            <a href="../modifier-article/<?= $data['id'] ?>" class="card-link">
+                            <button class="btn btn-info disabled">Modifier</button>
+                            </a>
+
+                            <a href="../supprimer-article/<?= $data['id'] ?>" class="toConfirm"
+                               data-message="Êtes-vous sûr de vouloir supprimer cet article ? Les commentaires qu'il contient seront également supprimés.">
+                                <button class="btn btn-warning disabled nav-item">Supprimer</button>
+                            </a>
                         </p>
                     <?php }
                     ?>

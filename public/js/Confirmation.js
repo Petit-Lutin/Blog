@@ -23,7 +23,7 @@ function confirmDelete(e, message) {
     }
 }
 
-const mesBalises = document.querySelectorAll(".testJS");
+const mesBalises = document.querySelectorAll(".toConfirm");
 
 for (i = 0; i < mesBalises.length; i++) {
     mesBalises[i].addEventListener("click", (e) => {
@@ -32,7 +32,5 @@ for (i = 0; i < mesBalises.length; i++) {
             e.preventDefault();
             e.stopPropagation();
         }
-
     })
-
 }

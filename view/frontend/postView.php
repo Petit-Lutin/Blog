@@ -17,16 +17,13 @@
                     if (isset($_SESSION['email'])) {
                         ?>
                         <p class="text-right">
-                            <a
-                                    href="../modifier-article/<?= $post['id'] ?>" class="card-link testJS"
-                                    message="êtes-vous sûr....?">
+                            <a href="../modifier-article/<?= $post['id'] ?>" class="card-link toConfirm"
+                               data-message="êtes-vous sûr....?">
                                 <button class="btn btn-info disabled">Modifier</button>
                             </a>
-                            <a href="#" class="testJS" data-message="êtes-vous sûr....?">
-                                <button>Click me</button>
-                            </a>
-                            <a href="../supprimer-article/<?= $post['id'] ?>" class="testJS"
-                               message="êtes-vous sûr....?">
+
+                            <a href="../supprimer-article/<?= $post['id'] ?>" class="toConfirm"
+                               data-message="Êtes-vous sûr de vouloir supprimer cet article ? Les commentaires qu'il contient seront également supprimés.">
                                 <button class="btn btn-warning disabled nav-item">Supprimer</button>
                             </a>
                         </p>
@@ -97,15 +94,19 @@
                         } else {
                             ?>
                             <p>
-                                <button class="btn btn-warning disabled btn-reportComment "><a
-                                            href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
-                                            title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
-                                </button>
+                                <a href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
+                                   title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">
+                                    <button class="btn btn-warning btn-reportComment ">Signaler</button>
+                                </a>
+
                                 <?php
                                 if (isset($_SESSION['email'])) { ?>
-                                    <button class="btn btn-danger" onclick="confirmDelete(event)"><a
-                                                href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a>
-                                    </button>
+                                    <a class="toConfirm"
+                                       data-message="Êtes-vous sûr de vouloir supprimer ce commentaire ?"
+                                       href="../index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
+                                        <button class="btn btn-danger">Supprimer</button>
+                                    </a>
+
                                 <?php } ?>
                             </p>
 
