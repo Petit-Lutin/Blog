@@ -17,31 +17,14 @@
 
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-            <button class="btn btn-danger confirmation">
-                <a class="toConfirm" data-message="Voulez-vous vraiment supprimer ce commentaire ?"
-                   href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">Supprimer</a></button>
+
+            <a class="toConfirm" data-message="Voulez-vous vraiment supprimer ce commentaire ?"
+               href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
+                <button class="btn btn-danger confirmation">Supprimer</button>
+            </a>
+            <hr>
             <?php
 
-            // si le commentaire en question a déjà été signalé par un utilisateur (reconnu par son adresse IP), on n'affiche pas de bouton "signaler"
-            if ($comment['reported'] == 1) {
-                ?>
-                <div class="alert alert-dismissible alert-warning reportedComment">Vous avez signalé ce commentaire.
-                </div>
-                <?php
-                // autrement on affiche un bouton "signaler"
-            } else {
-                ?>
-                <p>
-                    <button class="btn btn-warning btn-reportComment"><a
-                                href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
-                                title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">Signaler</a>
-                    </button>
-
-                </p>
-                <hr>
-
-                <?php
-            }
 
         }
         if ($page >= 1) {
@@ -56,7 +39,7 @@
         ?>
     </div>
 </div>
-<script src="../public/js/Confirmation.js"
+<!--<script src="../public/js/Confirmation.js"-->
 </script>
 <?php $content = ob_get_clean(); ?>
 

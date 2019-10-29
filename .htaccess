@@ -17,6 +17,7 @@ RewriteRule ^([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
 RewriteRule ^([a-z0-9\-]+)$ index.php?action=article&slug=$1
 
 RewriteRule ^liste-articles$ index.php?action=liste-articles
+#RewriteRule ^liste-articles$ index.php?action=liste-articles&page=0
 RewriteRule ^liste-articles/page-([0-9]+)$ index.php?action=liste-articles&page=$1
 RewriteRule ^gerer-commentaires/page-([0-9]+)$ index.php?action=gerer-commentaires&page=$1
 RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires&page=0

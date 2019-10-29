@@ -19,7 +19,7 @@
                 <div class="card-header">
                     <h4 class="card-title">
                         <a class="card-link"
-                           href="<?= $data['id'] ?>/<?= $data['slug'] ?>"><?= htmlspecialchars($data['title']) ?></a>
+                           href="../<?= $data['id'] ?>/<?= $data['slug'] ?>"><?= htmlspecialchars($data['title']) ?></a>
                         <small class="card-subtitle mb-2 text-muted">- le <?= $data['creation_date_fr'] ?></small>
                     </h4>
                 </div>
@@ -79,13 +79,13 @@
             ?>
             <li>
 
-                <button class="btn btn-primary"><a class="nav-link nav-item active"
-                                                   href="liste-articles/page-<?= $page - 1 ?>">
-                        <div class="text-secondary">
-                            <i class="fas fa-angle-left flecheGauche"></i>
+                <a class="nav-link nav-item active"
+                   href="../liste-articles/page-<?= $page - 1 ?>">  <button class="btn btn-primary">
+<!--                        <div class="text-secondary">-->
+                            <i class="fas fa-angle-left"></i>
                             page précédente
-                        </div>
-                    </a></button>
+<!--                        </div>-->
+                    </button></a>
             </li>
 
             <?php
@@ -96,11 +96,14 @@
         if ($posts->rowCount() === 5) {
             ?>
             <li>
-                <button class="btn btn-primary"><a href="liste-articles/page-<?= $page + 1 ?>">
-                        <div class="text-secondary">
+               <a href="../liste-articles/page-<?= $page + 1 ?>">
+                        <button class="btn btn-primary">
+<!--                            <div class="text-secondary">-->
                             page
-                            suivante <i class="fas fa-angle-right flecheDroite"></i></div>
-                    </a></button>
+                            suivante <i class="fas fa-angle-right"></i>
+<!--                            </div>-->
+                        </button>
+                    </a>
             </li>
         <?php }
         ?>

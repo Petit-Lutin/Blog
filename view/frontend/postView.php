@@ -33,39 +33,7 @@
                     <p>
                         <?= nl2br($post['content']) ?>
                     </p>
-                    <ul class="pagination navbar">
 
-                        <?php
-                        //todo: cacher l'affichage du bouton précédent quand c'est le dernier article
-                        if ((null != $post['id'] + 1) && !empty($post['id'] + 1)) {
-                            $biggerId = $post['id'] + 1; ?>
-                            <li>
-
-                                <a href="../<?= $biggerId ?>">
-                                    <button class="btn btn-outline-primary">
-                                        <i class="fas fa-angle-left flecheGauche"></i>
-                                        Article précédent (plus récent)
-                                    </button>
-                                </a>
-                            </li>
-                            <?php
-                        }
-
-                        if (null != $post['id'] - 1) {
-                            $smallerId = $post['id'] - 1;
-                            ?>
-                            <li>
-                                <a href="../<?= $smallerId ?>">
-                                    <button class="btn btn-outline-primary">
-                                        Article suivant (plus ancien) <i
-                                                class="fas fa-angle-right flecheDroite"></i>
-                                    </button>
-                                </a>
-                            </li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
 
                 </div>
             </div>
@@ -138,7 +106,7 @@
             </div>
 
             <div class="card-footer">
-                <p><a href="index.php?action=liste-articles&page=0">Retour à la liste des articles</a></p>
+                <p><a href="../liste-articles/page-0"><button class="btn btn-outline-primary"><i class="fas fa-angle-left"></i> Retour à la liste des articles</button> </a></p>
             </div>
 
         </div>

@@ -45,9 +45,9 @@
                         <a class="dropdown-item " href="../creer-article">Créer un article</a>
 
                         <a class="dropdown-item text-primary"
-                           href="gerer-commentaires/page-<?= isset($page) ? $page : 0 ?>">Gérer les
+                           href="../gerer-commentaires/page-<?= isset($page) ? $page : 0 ?>">Gérer les
                             commentaires</a>
-                        <a class="dropdown-item text-danger" href="logout">Se déconnecter</a>
+                        <a class="dropdown-item text-danger" href="../logout">Se déconnecter</a>
                     </div>
                 </div>
 
