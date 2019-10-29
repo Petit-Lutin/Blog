@@ -17,14 +17,17 @@
                     if (isset($_SESSION['email'])) {
                         ?>
                         <p class="text-right">
-                            <a class="card-link"
-                               href="../modifier-article/<?= $post['id'] ?>">
+                            <a
+                                    href="../modifier-article/<?= $post['id'] ?>" class="card-link testJS"
+                                    message="êtes-vous sûr....?">
                                 <button class="btn btn-info disabled">Modifier</button>
                             </a>
-
-                            <a href="../supprimer-article/<?= $post['id'] ?>" onclick="confirmDelete(event, "
-                               Voulez-vous vraiment supprimer cet article ?")>
-                                                        <button class="btn btn-warning disabled nav-item">Supprimer</button>
+                            <a href="#" class="testJS" data-message="êtes-vous sûr....?">
+                                <button>Click me</button>
+                            </a>
+                            <a href="../supprimer-article/<?= $post['id'] ?>" class="testJS"
+                               message="êtes-vous sûr....?">
+                                <button class="btn btn-warning disabled nav-item">Supprimer</button>
                             </a>
                         </p>
                     <?php }
