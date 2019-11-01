@@ -19,7 +19,7 @@
             <br>
 
             <input type="text" name="slug" class="form-control text-primary"
-                   placeholder="URL personnalisée sans espace ni accent, exemple : chapitre-3"
+                   placeholder="URL personnalisée de l'article sans espace ni accent, exemple : chapitre-3"
                    aria-describedby="URLpersonnalisée"
                    id="slug" maxlength="255" required>
             <br>

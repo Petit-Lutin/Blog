@@ -96,7 +96,7 @@
 </div>
 
 <footer>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navFooter">
         <ul class="navbar-nav">
             <li class="nav-link nav-item active">&copy; Jean Forteroche</li>
             <li class="nav-item"><a class="nav-link" href="#">Mentions légales</li>
