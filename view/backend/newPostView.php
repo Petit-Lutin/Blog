@@ -5,7 +5,8 @@
 
             <h2>Rédiger un nouvel article</h2>
             <div class="titlePost">
-                <input type="text" class="form-control text-primary" id="title" name="title" aria-describedby="titrearticle"
+                <input type="text" class="form-control text-primary" id="title" name="title"
+                       aria-describedby="titrearticle"
                        placeholder="Titre de l'article" maxlength="255" required>
 
             </div>
@@ -15,20 +16,13 @@
                     <textarea class="form-control" name="content" id="content"></textarea>
                 </div>
             </div>
-            <label for="slug">
-                <button type="button" class="btn btn-secondary" title="" data-container="body" data-toggle="popover"
-                        data-placement="bottom" data-content="Vivamus
-              sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="URL personnalisée" name="slug"
-                        aria-describedby="popover194453">
-                    URL personnalisée
-                </button>
-                <br>
+            <br>
 
-            </label>
-
-            <input type="text" name="slug" class="form-control text-primary" aria-describedby="URLpersonnalisée"
+            <input type="text" name="slug" class="form-control text-primary"
+                   placeholder="URL personnalisée sans espace ni accent, exemple : chapitre-3"
+                   aria-describedby="URLpersonnalisée"
                    id="slug" maxlength="255" required>
-
+            <br>
             <button class="btn btn-primary" type="submit">Enregistrer</button>
 
         </form>

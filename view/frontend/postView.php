@@ -97,7 +97,7 @@
                                 <textarea id="comment" name="comment" required></textarea>
                             </div>
                             <div>
-                                <input type="submit"/>
+                                <button class="btn btn-primary" type="submit">Enregistrer</button>
                             </div>
                         </form>
                     </li>
