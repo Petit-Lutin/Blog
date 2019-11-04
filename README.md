@@ -1,4 +1,5 @@
-# Projet 4 Blog
+# Projet 4 - création d'un blog
 
-Ceci est mon projet 4.
+Ceci est un blog CRUD (Create, Read, Update, Delete) réalisé avec PHP et MySQL.
+
 
