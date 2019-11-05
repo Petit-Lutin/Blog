@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">À&nbsp;propos</a>
+                        <a class="nav-link" href="../about">À&nbsp;propos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>

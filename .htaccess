@@ -23,7 +23,7 @@ RewriteRule ^gerer-commentaires/page-([0-9]+)$ index.php?action=gerer-commentair
 RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires&page=0
 RewriteRule ^supprimer-article/([0-9]+)$ index.php?action=supprimer-article&id=$1
 
-#RewriteRule ^$ index.php?action=liste-articles&page=0
+#RewriteRule ^about$ index.php?action=about
 
 
 

@@ -30,7 +30,7 @@
                         ?>
                         <p class="text-right">
                             <a href="../modifier-article/<?= $data['id'] ?>" class="card-link">
-                            <button class="btn btn-info disabled">Modifier</button>
+                                <button class="btn btn-info disabled">Modifier</button>
                             </a>
 
                             <a href="../supprimer-article/<?= $data['id'] ?>" class="toConfirm"
@@ -66,8 +66,7 @@
         <div class="container jumbotron text-center">
             <p class="lead">Bravo, vous avez tout lu ! <br>
                 <a href="liste-articles/page-<?= $page - 1 ?>"> <i class="fas fa-angle-left flecheGauche"></i> Revenir à
-                    la
-                    page précédente</a>
+                    la page précédente</a>
             </p>
             <img class="readingFinished" src="public/img/snow-3953603_1920.jpg"></div>    <?php } ?>
 
@@ -80,30 +79,26 @@
             <li>
 
                 <a class="nav-link nav-item active"
-                   href="../liste-articles/page-<?= $page - 1 ?>">  <button class="btn btn-primary">
-<!--                        <div class="text-secondary">-->
-                            <i class="fas fa-angle-left"></i>
-                            page précédente
-<!--                        </div>-->
-                    </button></a>
+                   href="../liste-articles/page-<?= $page - 1 ?>">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                        page précédente
+                    </button>
+                </a>
             </li>
 
             <?php
         } ?>
 
-
         <?php
         if ($posts->rowCount() === 5) {
             ?>
             <li>
-               <a href="../liste-articles/page-<?= $page + 1 ?>">
-                        <button class="btn btn-primary">
-<!--                            <div class="text-secondary">-->
-                            page
-                            suivante <i class="fas fa-angle-right"></i>
-<!--                            </div>-->
-                        </button>
-                    </a>
+                <a href="../liste-articles/page-<?= $page + 1 ?>">
+                    <button class="btn btn-primary">
+                        page suivante <i class="fas fa-angle-right"></i>
+                    </button>
+                </a>
             </li>
         <?php }
         ?>
