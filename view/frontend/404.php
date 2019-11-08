@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 
 
-<div class="container jumbotron err404">
+<div class="container jumbotron jumbotronImportant">
     <div class="row text-center">
         <div class="col-sm-6">
             <img class="img404" src="/public/img/sea-otter-1772039_1280.jpg">

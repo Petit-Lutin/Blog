@@ -2,22 +2,24 @@
 <?php ob_start(); ?>
 
 
-<div class="container jumbotron err404">
-    <div class="row text-center">
-        <div class="col-sm-6"><img class="img404" src="public/img/sea-otter-1772039_1280.jpg">
-        </div>
-        <div class="col-sm-6">
-            <p>
-            <h2>À propos</h2>
-            </p>
+<div class="container jumbotron jumbotronImportant">
+    <h2 class="text-center display-4">À propos</h2>
+    <hr>
+    <p class="text-center lead">
+        Qui suis-je ? Mon nom est Jean Forteroche, acteur et écrivain.
+    </p>
+    <p class="text-center lead"><img class="imgAbout" src="/public/img/typewriter-2306479_1280.jpg">
+    </p>
+    <p class="text-justify lead">
+        Après le succès de mes premiers romans, je me lance le pari un peu fou de publier mon prochain roman, <span
+                class="text-info">Billet simple pour l'Alaska</span>, en avant-première ici-même sur mon blog, épisode par épisode. <br>
 
-            <p>
-            <h3><a href="liste-articles/page-0"> <i class="fas fa-angle-left flecheGauche"></i> Revenir à
-                    la liste des articles</a></h3>
-            </p>
+    </p>
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="liste-articles/page-0" role="button">Lire mon nouveau roman en ligne</a>
+    </p>
 
-        </div>
-    </div>
+</div>
 </div>
 
 <?php $content = ob_get_clean();
