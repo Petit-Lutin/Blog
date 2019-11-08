@@ -7,8 +7,10 @@ RewriteRule ^creer-article$ index.php?action=creer-article
 
 RewriteRule ^about$ index.php?action=about
 RewriteRule ^logout$ index.php?action=logout
-RewriteRule ^modifier-article/([0-9]+)$ index.php?action=modifier-article&id=$1
+#RewriteRule ^404$ index.php?action=404
+#RewriteRule ^404$ ./view/frontend/404
 
+RewriteRule ^modifier-article/([0-9]+)$ index.php?action=modifier-article&id=$1
 
 #RewriteRule ^article/([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
 RewriteRule ^([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2

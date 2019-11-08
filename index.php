@@ -106,10 +106,9 @@ try {
 
 //                un article
             case 'article':
-                if ((!empty($_GET['id']) && (isset($_GET['id'])) && (!empty($_GET['slug'])))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
+                if ((!empty($_GET['id']) && (isset($_GET['id'])) && (!empty($_GET['slug']))) && (isset($_GET['slug']))) {
                     $frontOfficeController->post();
-                }
-                else {
+                } else {
                     require('view/frontend/404.php');
                 }
                 break;
@@ -134,8 +133,11 @@ try {
             case 'about':
                 require('view/frontend/about.php');
                 break;
-        }
 
+//            case '404':
+//                require('view/frontend/404.php');
+//                break;
+        }
     } else {
         $frontOfficeController->listPosts(0);
     }

@@ -34,11 +34,14 @@ class FrontOfficeController
         $post = $postManager->getPost($_GET['id'], $_GET['slug']);
         $slug = $post['slug'];
         if ($_GET['slug'] <> $slug) {
-            header('Location:../view/frontend/404.php');
+            require('view/frontend/404.php');
         }
-        $title = htmlspecialchars($post['title']);
-        $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
-        require('view/frontend/postView.php');
+        else{
+            $title = htmlspecialchars($post['title']);
+            $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
+            require('view/frontend/postView.php');
+        }
+
 
 
     }

@@ -1,10 +1,11 @@
-<?php $title = "Billet simple pour l'Alaska" ?>
+<?php $title = "Page non trouvée" ?>
 <?php ob_start(); ?>
 
 
 <div class="container jumbotron err404">
     <div class="row text-center">
-        <div class="col-sm-6"><img class="img404" src="public/img/sea-otter-1772039_1280.jpg">
+        <div class="col-sm-6">
+            <img class="img404" src="/public/img/sea-otter-1772039_1280.jpg">
         </div>
         <div class="col-sm-6">
             <p>
