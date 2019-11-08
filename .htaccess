@@ -2,14 +2,12 @@
 
 RewriteEngine on
 
-#RewriteRule ^/([a-zA-Z0-9\-]+)([0-9]+)$ index.php?action=article&slug=$2
 RewriteRule ^login$ index.php?action=login
 RewriteRule ^creer-article$ index.php?action=creer-article
-#RewriteRule ^add-post$ index.php?action=add-post
+
+RewriteRule ^about$ index.php?action=about
 RewriteRule ^logout$ index.php?action=logout
 RewriteRule ^modifier-article/([0-9]+)$ index.php?action=modifier-article&id=$1
-#RewriteRule ^update-post/([0-9]+)$ index.php?action=update-post&id=$1
-
 
 
 #RewriteRule ^article/([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
@@ -23,7 +21,7 @@ RewriteRule ^gerer-commentaires/page-([0-9]+)$ index.php?action=gerer-commentair
 RewriteRule ^gerer-commentaires$ index.php?action=gerer-commentaires&page=0
 RewriteRule ^supprimer-article/([0-9]+)$ index.php?action=supprimer-article&id=$1
 
-#RewriteRule ^about$ index.php?action=about
+
 
 
 

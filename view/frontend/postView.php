@@ -5,7 +5,7 @@
         <div class="card border-secondary mb-3">
             <div class="card-header">
                 <h4 class="card-title">
-                    <a href="<?= $post['id'] ?>"> <?= htmlspecialchars($post['title']) ?></a>
+                    <a href="../<?= $post['id'] ?>/<?= $post['slug'] ?>"> <?= htmlspecialchars($post['title']) ?></a>
                     <small class="card-subtitle mb-2 text-muted">- le <?= $post['creation_date_fr'] ?></small>
                 </h4>
             </div>

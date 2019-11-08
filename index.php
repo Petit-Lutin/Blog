@@ -109,6 +109,9 @@ try {
                 if ((!empty($_GET['id']) && (isset($_GET['id'])) && (!empty($_GET['slug'])))) { /*   if (isset($_GET['id']) && $_GET['id'] > 0) {  }*/
                     $frontOfficeController->post();
                 }
+                else {
+                    require('view/frontend/404.php');
+                }
                 break;
 
 //                ajouter un commentaire
@@ -127,7 +130,7 @@ try {
                     throw new Exception("Veuillez choisir un commentaire");
                 }
                 break;
-
+// à propos
             case 'about':
                 require('view/frontend/about.php');
                 break;

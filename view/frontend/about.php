@@ -1,4 +1,4 @@
-<?php $title = "À spropos" ?>
+<?php $title = "À propos" ?>
 <?php ob_start(); ?>
 
 
@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-6">
             <p>
-            <h2>Oups, la page que vous cherchez n'existe pas... </h2>
+            <h2>À propos</h2>
             </p>
 
             <p>

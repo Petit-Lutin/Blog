@@ -31,12 +31,16 @@ class FrontOfficeController
         $postManager = new PostManager();
         $commentManager = new CommentManager();
 
-        $post = $postManager->getPost($_GET['id'],$_GET['slug']);
+        $post = $postManager->getPost($_GET['id'], $_GET['slug']);
         $slug = $post['slug'];
-
+        if ($_GET['slug'] <> $slug) {
+            header('Location:../view/frontend/404.php');
+        }
         $title = htmlspecialchars($post['title']);
         $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
         require('view/frontend/postView.php');
+
+
     }
 
     public function addComment($postId, $author, $comment)
@@ -50,7 +54,7 @@ class FrontOfficeController
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
-            header('Location: ' . $postId.'/'.$slug);
+            header('Location: ' . $postId . '/' . $slug);
         }
     }
 
