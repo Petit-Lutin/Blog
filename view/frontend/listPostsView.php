@@ -30,12 +30,12 @@
                         ?>
                         <p class="text-right">
                             <a href="../modifier-article/<?= $data['id'] ?>" class="card-link">
-                                <button class="btn btn-info disabled">Modifier</button>
+                                <div class="btn btn-info disabled">Modifier</div>
                             </a>
 
                             <a href="../supprimer-article/<?= $data['id'] ?>" class="toConfirm"
                                data-message="Êtes-vous sûr de vouloir supprimer cet article ? Les commentaires qu'il contient seront également supprimés.">
-                                <button class="btn btn-warning disabled nav-item">Supprimer</button>
+                                <div class="btn btn-warning disabled nav-item">Supprimer</div>
                             </a>
                         </p>
                     <?php }
@@ -70,41 +70,43 @@
             </p>
             <img class="readingFinished" src="public/img/snow-3953603_1920.jpg"></div>    <?php } ?>
 
-
-    <ul class="pagination navbar">
-
-        <?php
-        if ($page >= 1) {
-            ?>
-            <li>
-
-                <a class="nav-link nav-item active"
-                   href="../liste-articles/page-<?= $page - 1 ?>">
-                    <button class="btn btn-primary">
-                        <i class="fas fa-angle-left"></i>
-                        page précédente
-                    </button>
-                </a>
-            </li>
+    <nav>
+        <ul class="pagination navbar">
 
             <?php
-        } ?>
+            if ($page >= 1) {
+                ?>
+                <li>
 
-        <?php
-        if ($posts->rowCount() === 5) {
+
+                        <a
+                                href="../liste-articles/page-<?= $page - 1 ?>">
+                                <div class="btn btn-primary">
+                                <i class="fas fa-angle-left"></i>
+                                page précédente
+                            </div>
+                        </a>
+
+                </li>
+
+                <?php
+            } ?>
+
+            <?php
+            if ($posts->rowCount() === 5) {
+                ?>
+                <li>
+                    <a href="../liste-articles/page-<?= $page + 1 ?>">
+                        <div class="btn btn-primary">
+                            page suivante <i class="fas fa-angle-right"></i>
+                        </div>
+                    </a>
+                </li>
+            <?php }
             ?>
-            <li>
-                <a href="../liste-articles/page-<?= $page + 1 ?>">
-                    <button class="btn btn-primary">
-                        page suivante <i class="fas fa-angle-right"></i>
-                    </button>
-                </a>
-            </li>
-        <?php }
-        ?>
 
-    </ul>
-
+        </ul>
+    </nav>
 </div>
 
 

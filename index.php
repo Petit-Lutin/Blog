@@ -137,9 +137,7 @@ try {
             case 'mentionslegales':
                 require('view/frontend/mentionslegales.php');
                 break;
-//            case '404':
-//                require('view/frontend/404.php');
-//                break;
+
         }
     } else {
         $frontOfficeController->listPosts(0);

@@ -19,12 +19,12 @@
                         <p class="text-right">
                             <a href="../modifier-article/<?= $post['id'] ?>" class="card-link toConfirm"
                                data-message="êtes-vous sûr....?">
-                                <button class="btn btn-info disabled">Modifier</button>
+                                <div class="btn btn-info disabled">Modifier</div>
                             </a>
 
                             <a href="../supprimer-article/<?= $post['id'] ?>" class="toConfirm"
                                data-message="Êtes-vous sûr de vouloir supprimer cet article ? Les commentaires qu'il contient seront également supprimés.">
-                                <button class="btn btn-warning disabled nav-item">Supprimer</button>
+                                <div class="btn btn-warning disabled nav-item">Supprimer</div>
                             </a>
                         </p>
                     <?php }
@@ -64,7 +64,7 @@
                             <p>
                                 <a href="index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                                    title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">
-                                    <button class="btn btn-warning btn-reportComment ">Signaler</button>
+                                    <div class="btn btn-warning btn-reportComment ">Signaler</div>
                                 </a>
 
                                 <?php
@@ -72,7 +72,7 @@
                                     <a class="toConfirm"
                                        data-message="Êtes-vous sûr de vouloir supprimer ce commentaire ?"
                                        href="../index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
-                                        <button class="btn btn-danger">Supprimer</button>
+                                        <div class="btn btn-danger">Supprimer</div>
                                     </a>
 
                                 <?php } ?>
@@ -106,7 +106,11 @@
             </div>
 
             <div class="card-footer">
-                <p><a href="../liste-articles/page-0"><button class="btn btn-outline-primary"><i class="fas fa-angle-left"></i> Retour à la liste des articles</button> </a></p>
+                <p><a href="../liste-articles/page-0">
+                        <div class="btn btn-outline-primary"><i class="fas fa-angle-left"></i> Retour à la liste des
+                            articles
+                        </div>
+                    </a></p>
             </div>
 
         </div>
