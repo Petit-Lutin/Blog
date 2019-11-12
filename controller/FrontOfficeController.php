@@ -16,10 +16,7 @@ class FrontOfficeController
     public function listPosts($page)
     {
         $postManager = new PostManager(); // Création d'un objet
-//        $posts = null;
         $posts = $postManager->getPosts($page);
-//        echo $postsInfo['posts']->rowCount(); //retourne le nb de posts sur la page actuelle
-//        echo $posts->rowCount();
         // Appel d'une fonction de cet objet avec page en paramètre
 
         require('view/frontend/listPostsView.php');

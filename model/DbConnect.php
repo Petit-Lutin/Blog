@@ -17,9 +17,3 @@ class DbConnect
         return self::$connection;
     }
 }
-//protected function dbConnect()
-//{
-//    $db = new PDO('mysql:host=localhost;dbname=p4-blog;charset=utf8', 'root', '');
-//    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Set Errorhandling to Exception
-//    return $db;
-//}
