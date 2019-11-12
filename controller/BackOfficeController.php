@@ -30,7 +30,7 @@ class BackOfficeController
 
             $user = $userManager->getUser($userEmailForm); // on regarde si un mail correspond dans la table des utilisateurs enregistrés
 
-            if ($user !== false) { //si cela correspond bien à un utilisateur todo:se renseigner filter
+            if ($user !== false) { //si cela correspond bien à un utilisateur
                 $userPasswordForm = htmlspecialchars($_POST['password']);
                 $mdpOK = password_verify($userPasswordForm, $user['password']); // //on hash+sale le mdp saisi par l'utilisateur et on compare le mdp saisi avec celui enregistré
 
@@ -56,7 +56,6 @@ class BackOfficeController
         require('view/backend/newPostView.php');
     }
 
-//todo : penser à valider les données ->TBAb Steeve (+maxlength dans html)
     public function addPost()
     { //pour poster un nouvel article
         $postManager = new PostManager();

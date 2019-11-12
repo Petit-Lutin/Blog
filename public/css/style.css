@@ -44,18 +44,10 @@ strong {
 
 .contenuPage {
     margin-top: 160px;
-
-
 }
 
 .deletedComment {
     display: none;
-}
-
-.loggedBar {
-    margin-bottom: 50px;
-    z-index: 2;
-    padding: 10px;
 }
 
 .admin ul li {
@@ -64,7 +56,6 @@ strong {
 }
 
 .mainNavbar {
-    /*margin-top:150px;*/
     z-index: 1;
 }
 

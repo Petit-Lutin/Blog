@@ -28,15 +28,17 @@
                     <?php
                     if (isset($_SESSION['email'])) {
                         ?>
-                        <p class="text-right">
-                            <a href="../modifier-article/<?= $data['id'] ?>" class="card-link">
-                                <div class="btn btn-info disabled">Modifier</div>
+                        <p>
+                        <div class="text-right">
+                            <a href="../modifier-article/<?= $data['id'] ?>" >
+                                <div class="btn btn-info disabled nav-item">Modifier</div>
                             </a>
 
                             <a href="../supprimer-article/<?= $data['id'] ?>" class="toConfirm"
                                data-message="Êtes-vous sûr de vouloir supprimer cet article ? Les commentaires qu'il contient seront également supprimés.">
                                 <div class="btn btn-warning disabled nav-item">Supprimer</div>
                             </a>
+                        </div>
                         </p>
                     <?php }
                     ?>
@@ -77,10 +79,7 @@
             if ($page >= 1) {
                 ?>
                 <li>
-
-
-                        <a
-                                href="../liste-articles/page-<?= $page - 1 ?>">
+                        <a href="../liste-articles/page-<?= $page - 1 ?>">
                                 <div class="btn btn-primary">
                                 <i class="fas fa-angle-left"></i>
                                 page précédente

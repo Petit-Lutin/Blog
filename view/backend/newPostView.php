@@ -4,11 +4,11 @@
         <form action="index.php?action=add-post" method="post">
 
             <h2>Rédiger un nouvel article</h2>
+
             <div class="titlePost">
                 <input type="text" class="form-control text-primary" id="title" name="title"
                        aria-describedby="titrearticle"
                        placeholder="Titre de l'article" maxlength="255" required>
-
             </div>
 
             <div class="contentPost">

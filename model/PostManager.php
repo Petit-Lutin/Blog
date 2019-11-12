@@ -41,8 +41,6 @@ class PostManager
         $db = DbConnect::getConnection();
         $postToDelete = $db->prepare('DELETE FROM posts WHERE id = ?');
         $postToDelete->execute([$postId]);
-//        $commentsToDelete = $db->prepare('DELETE FROM comments WHERE post_id = ?');
-//        $commentsToDelete->execute([$postId]);
         return $postToDelete;
     }
 }

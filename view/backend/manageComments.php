@@ -20,7 +20,7 @@
 
             <a class="toConfirm" data-message="Voulez-vous vraiment supprimer ce commentaire ?"
                href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
-                <button class="btn btn-danger confirmation">Supprimer</button>
+                <div class="btn btn-danger confirmation">Supprimer</div>
             </a>
             <hr>
             <?php
@@ -39,8 +39,7 @@
         ?>
     </div>
 </div>
-<!--<script src="../public/js/Confirmation.js"-->
-</script>
+<script src="../public/js/Confirmation.js"</script>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>

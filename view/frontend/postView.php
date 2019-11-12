@@ -89,12 +89,12 @@
                         <!-- Pour poster un commentaire -->
                         <form action="../index.php?action=add-comment&amp;id=<?= $post['id'] ?>" method="post">
                             <div>
-                                <label for="author">Votre nom ou pseudo</label><br/>
-                                <input type="text" id="author" name="author" required/>
+                                <p><label for="author">Votre nom ou pseudo :</label><br/>
+                                    <input type="text" id="author" name="author" required/></p>
                             </div>
                             <div>
-                                <label for="comment">Commentaire</label><br/>
-                                <textarea id="comment" name="comment" required></textarea>
+                               <p> <label for="comment">Votre commentaire :</label><br/>
+                                <textarea id="comment" name="comment" required></textarea></p>
                             </div>
                             <div>
                                 <button class="btn btn-primary" type="submit">Enregistrer</button>
@@ -106,11 +106,11 @@
             </div>
 
             <div class="card-footer">
-                <p><a href="../liste-articles/page-0">
+                    <a class="card-link" href="../liste-articles/page-0">
                         <div class="btn btn-outline-primary"><i class="fas fa-angle-left"></i> Retour à la liste des
                             articles
                         </div>
-                    </a></p>
+                    </a>
             </div>
 
         </div>
