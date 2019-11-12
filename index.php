@@ -133,7 +133,10 @@ try {
             case 'about':
                 require('view/frontend/about.php');
                 break;
-
+// à propos
+            case 'mentionslegales':
+                require('view/frontend/mentionslegales.php');
+                break;
 //            case '404':
 //                require('view/frontend/404.php');
 //                break;

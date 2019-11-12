@@ -4,6 +4,7 @@ RewriteEngine on
 RewriteRule ^login$ index.php?action=login
 RewriteRule ^creer-article$ index.php?action=creer-article
 RewriteRule ^about$ index.php?action=about
+RewriteRule ^mentionslegales$ index.php?action=mentionslegales
 RewriteRule ^logout$ index.php?action=logout
 RewriteRule ^modifier-article/([0-9]+)$ index.php?action=modifier-article&id=$1
 RewriteRule ^([0-9]+)/(.*)$ index.php?action=article&id=$1&slug=$2
