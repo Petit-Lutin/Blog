@@ -13,7 +13,7 @@
             </p>
 
             <p>
-            <h3><a href="liste-articles/page-0"> <i class="fas fa-angle-left flecheGauche"></i> Revenir à
+            <h3><a href="../liste-articles/page-0"> <i class="fas fa-angle-left flecheGauche"></i> Revenir à
                     la liste des articles</a></h3>
             </p>
 

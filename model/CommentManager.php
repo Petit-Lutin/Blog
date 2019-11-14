@@ -46,7 +46,7 @@ class CommentManager
                 // un utilisateur (identifié par son IP) ne peut signaler un commentaire qu'une seule fois
             }
         }
-        return ['postId' => $isOK, 'slug' => $slug];
+        return $isOK;
     }
 
     public function deleteComment($commentId)

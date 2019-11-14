@@ -60,16 +60,15 @@ class FrontOfficeController
     public function reportComment($commentId, $REMOTE_ADDR)
     {
         $commentManager = new CommentManager();
-        $concernedPost = $commentManager->reportComment($commentId, $REMOTE_ADDR);
-        $postId= $concernedPost ['postId'];
-        $slug = $concernedPost ['slug'];
+        $postId = $commentManager->reportComment($commentId, $REMOTE_ADDR);
 
+        $postManager = new PostManager();
+        $post = $postManager->getPost($postId);
+        $slug = $post['slug'];
         if ($postId === false) {
             throw new Exception('Impossible de signaler le commentaire !');
         }
-        $postManager = new PostManager();
 
         header('Location: ' . $postId . '/' . $slug);
-//        header('Location: index.php?action=article&id=' . $postId.'&slug='.$slug);
     }
 }
