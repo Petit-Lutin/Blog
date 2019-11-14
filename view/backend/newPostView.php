@@ -6,7 +6,7 @@
             <h2>Rédiger un nouvel article</h2>
 
             <div class="titlePost">
-                <input type="text" class="form-control text-primary" id="title" name="title"
+                <input type="text" class="form-control text-primary title" id="title" name="title"
                        aria-describedby="titrearticle"
                        placeholder="Titre de l'article" maxlength="255" required>
             </div>
@@ -18,16 +18,18 @@
             </div>
             <br>
 
-            <input type="text" name="slug" class="form-control text-primary"
+            <input type="text" name="slug" class="form-control text-primary slug"
                    placeholder="URL personnalisée de l'article sans espace ni accent, exemple : chapitre-3"
                    aria-describedby="URLpersonnalisée"
                    id="slug" maxlength="255" required>
             <br>
-            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            <button class="btn btn-primary formWithSlug" type="submit">Enregistrer</button>
 
         </form>
     </div>
-<?php
-$content = ob_get_clean(); ?>
+    <script src="../public/js/Post.js"</script>
+
+    <?php
+    $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>

@@ -6,7 +6,7 @@
             <h2>Modifier un article</h2>
 
             <div class="titlePost">
-                <input type="text" class="form-control text-primary" aria-describedby="titrearticle" name="title"
+                <input type="text" class="form-control text-primary title" aria-describedby="titrearticle" name="title"
                        id="title"
                        maxlength="255" value="<?php echo $post['title']; ?>" required>
             </div>
@@ -19,13 +19,15 @@
             </div>
             <br>
 
-            <input type="text" name="slug" class="form-control text-primary" aria-describedby="URLpersonnalisée"
+            <input type="text" name="slug" class="form-control text-primary slug" aria-describedby="URLpersonnalisée"
                    id="slug" maxlength="255" value="<?php echo $post['slug']; ?>" required>
             <br>
-            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            <button class="btn btn-primary formWithSlug" type="submit">Enregistrer</button>
 
         </form>
     </div>
+
+    <script src="../public/js/Post.js"</script>
 
 <?php
 $content = ob_get_clean(); ?>
