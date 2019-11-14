@@ -66,7 +66,7 @@
                         <p>
                             <a href="../index.php?action=report-comment&amp;commentid=<?= $comment['id'] ?>"
                                title="Si ce commentaire vous semble injurieux ou offensant, vous pouvez demander à ce qu'il soit modéré par Jean Forteroche.">
-                                <div class="btn btn-warning btn-reportComment toConfirm"
+                                <div class="btn btn-warning btn-sm nav-item toConfirm"
                                      data-message="Voulez-vous vraiment signaler ce commentaire ?">Signaler
                                 </div>
                             </a>

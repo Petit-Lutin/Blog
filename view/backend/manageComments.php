@@ -19,7 +19,7 @@
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
             <a class="toConfirm" data-message="Voulez-vous vraiment supprimer ce commentaire ?"
-               href="index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
+               href="../index.php?action=delete-comment&amp;commentid=<?= $comment['id'] ?>">
                 <div class="btn btn-danger confirmation">Supprimer</div>
             </a>
             <hr>

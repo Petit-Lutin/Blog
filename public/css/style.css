@@ -17,7 +17,6 @@ body {
 
 .readingFinished {
     max-width: 50%;
-
 }
 
 .news {
@@ -41,13 +40,8 @@ strong {
     width: 80%;
 }
 
-
 .contenuPage {
     margin-top: 160px;
-}
-
-.deletedComment {
-    display: none;
 }
 
 .admin ul li {
@@ -66,13 +60,10 @@ strong {
 
 .admin ul {
     display: flex;
-
 }
-
 
 .jumbotronImportant {
     margin-top: 200px;
-    /*padding-top: 0;*/
 }
 
 .img404 {
