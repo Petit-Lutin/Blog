@@ -4,11 +4,22 @@
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
 
-    <!--    Bootstrap -->
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="shortcut icon" href="public/img/favicon.ico" />
     <link rel="icon" type="image/x-icon" href="public/img/favicon.ico" />
     <link rel="icon" type="image/png" href="public/img/favicon.png" />
+
+
+    <meta property="<?= $title ?> - le blog de Jean Forteroche" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://p4-blog.laurenceplatzer.com/" />
+    <meta property="og:image" content="https://p4-blog.laurenceplatzer.com/public/img/wintry-3758523_1280.jpg" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="854" />
+
+    <meta property="og:description"
+          content="Billet simple pour l'Alaska est publié épisode par épisode. Plongez dans la lecture du nouveau roman de Jean Forteroche !" />
+    <!--    Bootstrap -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
 
     <!--    FontAwesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -23,7 +34,7 @@
         });
     </script>
 
-    <!--    CSS custom -->
+    <!--    CSS personnalisé -->
     <link href="/public/css/style.css" rel="stylesheet"/>
 </head>
 
