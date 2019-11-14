@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <title><?= $title ?></title>
-<!--    --><?//= CONFIG['baseHref'] ?>
 
     <!--    Bootstrap -->
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-<!--    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+    <link rel="shortcut icon" href="public/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="public/img/favicon.ico" />
+    <link rel="icon" type="image/png" href="public/img/favicon.png" />
 
     <!--    FontAwesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
