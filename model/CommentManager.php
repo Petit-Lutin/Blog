@@ -33,27 +33,25 @@ class CommentManager
     public function reportComment($commentId, $REMOTE_ADDR) // on ajoute l'adresse IP du "signaleur de commentaire" dans la table reports (commentaires signalés)
     {
         $db = DbConnect::getConnection();
-        $comments = $db->prepare('SELECT post_id FROM comments WHERE id = ?');
+        $comments = $db->prepare('SELECT post_id, slug  FROM comments INNER JOIN posts ON (comments.post_id = posts.id) WHERE comments.id = ?');
         $comments->execute(array($commentId));
         $postId = $comments->fetchColumn(); //on récupère l'ID de l'article auquel est lié le commentaire
-
+        $slug = $comments->fetchColumn(1);
         $isOK = $postId;
         if ($postId !== false) { // on vérifie que l'article existe bien
             try {
-                $comments = $db->prepare('INSERT INTO reports (comment_id, user_ip) VALUES(?, ?)');
+                $comments = $db->prepare('INSERT INTO reports (comment_id, user_ip) VALUES(?, ?)'); //on ajoute le commentaire à la table reports ainsi que l'IP du "signaleur de commentaire"
                 $comments->execute(array($commentId, $REMOTE_ADDR));
-                echo "Vous avez signalé ce commentaire";
             } catch (Exception $e) {
                 // un utilisateur (identifié par son IP) ne peut signaler un commentaire qu'une seule fois
             }
         }
-        return $isOK;
+        return ['postId' => $isOK, 'slug' => $slug];
     }
 
     public function deleteComment($commentId)
     {
         $db = DbConnect::getConnection();
-
         $comment = $db->prepare('DELETE FROM comments WHERE id = ?');
         $comment->execute([$commentId]);
         return $comment;

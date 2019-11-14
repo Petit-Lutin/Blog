@@ -32,13 +32,11 @@ class FrontOfficeController
         $slug = $post['slug'];
         if ($_GET['slug'] <> $slug) {
             require('view/frontend/404.php');
-        }
-        else{
+        } else {
             $title = htmlspecialchars($post['title']);
             $comments = $commentManager->getComments($_GET['id'], $_SERVER['REMOTE_ADDR']);
             require('view/frontend/postView.php');
         }
-
 
 
     }
@@ -47,10 +45,11 @@ class FrontOfficeController
     {
         $commentManager = new CommentManager();
         $affectedLines = $commentManager->postComment($postId, $author, $comment);
-        $postManager = new PostManager();
 
+        $postManager = new PostManager();
         $post = $postManager->getPost($_GET['id']);
         $slug = $post['slug'];
+
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
         } else {
@@ -61,10 +60,16 @@ class FrontOfficeController
     public function reportComment($commentId, $REMOTE_ADDR)
     {
         $commentManager = new CommentManager();
-        $postId = $commentManager->reportComment($commentId, $REMOTE_ADDR);
+        $concernedPost = $commentManager->reportComment($commentId, $REMOTE_ADDR);
+        $postId= $concernedPost ['postId'];
+        $slug = $concernedPost ['slug'];
+
         if ($postId === false) {
             throw new Exception('Impossible de signaler le commentaire !');
         }
-        header('Location: index.php?action=article&id=' . $postId);
+        $postManager = new PostManager();
+
+        header('Location: ' . $postId . '/' . $slug);
+//        header('Location: index.php?action=article&id=' . $postId.'&slug='.$slug);
     }
 }
