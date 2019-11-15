@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="public/img/favicon.png" />
 
 
-    <meta property="<?= $title ?> - le blog de Jean Forteroche" />
+    <meta property="og:title" content="<?= $title ?> - le blog de Jean Forteroche" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://p4-blog.laurenceplatzer.com/" />
     <meta property="og:image" content="https://p4-blog.laurenceplatzer.com/public/img/wintry-3758523_1280.jpg" />
