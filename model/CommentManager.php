@@ -8,7 +8,7 @@ class CommentManager
     {
         $db = DbConnect::getConnection();
         $offset = $page * 10;
-        $comments = $db->prepare('SELECT comments.id AS id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, post_id, posts.title AS post_title, (reports.comment_id IS NOT NULL) AS reported FROM comments INNER JOIN posts ON (comments.post_id = posts.id) LEFT JOIN reports ON (reports.comment_id = comments.id) ORDER BY reports.comment_id AND comment_date_fr DESC LIMIT :offset, 10');
+        $comments = $db->prepare('SELECT comments.id AS id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, post_id, posts.title AS post_title, slug, (reports.comment_id IS NOT NULL) AS reported FROM comments INNER JOIN posts ON (comments.post_id = posts.id) LEFT JOIN reports ON (reports.comment_id = comments.id) ORDER BY reports.comment_id AND comment_date_fr DESC LIMIT :offset, 10');
         $comments->bindParam(':offset', $offset, PDO::PARAM_INT);
         $comments->execute();
         return $comments;
@@ -33,10 +33,9 @@ class CommentManager
     public function reportComment($commentId, $REMOTE_ADDR) // on ajoute l'adresse IP du "signaleur de commentaire" dans la table reports (commentaires signalés)
     {
         $db = DbConnect::getConnection();
-        $comments = $db->prepare('SELECT post_id, slug  FROM comments INNER JOIN posts ON (comments.post_id = posts.id) WHERE comments.id = ?');
+        $comments = $db->prepare('SELECT post_id FROM comments WHERE comments.id = ?');
         $comments->execute(array($commentId));
         $postId = $comments->fetchColumn(); //on récupère l'ID de l'article auquel est lié le commentaire
-        $slug = $comments->fetchColumn(1);
         $isOK = $postId;
         if ($postId !== false) { // on vérifie que l'article existe bien
             try {

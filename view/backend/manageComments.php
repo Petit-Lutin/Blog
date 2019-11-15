@@ -8,9 +8,8 @@
         <?php
 
         while ($comment = $comments->fetch()) {
-            $post = $posts->fetch();
             ?><p>Sur <a
-                    href="../<?= $comment['post_id'] ?>/<?= $post['slug'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a>
+                    href="../<?= $comment['post_id'] ?>/<?= $comment['slug'] ?>"><?= htmlspecialchars($comment['post_title']) ?></a>
             :
             </p>
 
